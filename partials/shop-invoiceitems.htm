@@ -1,0 +1,5 @@
+{% for shipment in invoice.shipments %}
+    {% for item in shipment.shipmentItems %}
+		{{ partial('shop-purchased-items', {'invoice': invoice, 'item': item, }) }}
+	{% endfor %}
+{% endfor %}

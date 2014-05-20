@@ -1,0 +1,12 @@
+{% if product.options.count %}
+    {% for index, option in product.options %}
+      <div class="inline prod-options">
+        <h5 class="title" for="{{ 'option-'~index }}">{{ option.name }}</h5>
+        <select id="{{ 'option-'~index }}" name="options[{{ option.id }}]" class="product-option md-select" data-ajax-handler="shop:product" data-ajax-update="#product-page=shop-product">
+          {% for key, value in option.values %}
+            <option value='{{ key }}' {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% endfor %}
+{% endif %}

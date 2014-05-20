@@ -1,0 +1,32 @@
+<div class="cart-item row">
+	<div class="col-sm-2 col-lg-1">
+		<div class="image">
+			<img width="60" height="60" alt="" src="{{ item.product.images.first.thumbnail(60, 60) }}" /> 
+		</div>
+	</div>
+	<div class="col-sm-4 col-lg-6">
+		<div class="brand">
+		</div>
+		<div class="title">
+			<a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-5 details {{ edit_cart ? null : 'no-edit' }}">
+		<div class="unit-price">
+			<span class="visible-xs">Price</span>
+			{{ item.pivot.price|currency }}
+		</div>
+		<div class="quantity">
+	   		<span class="visible-xs">Quantity</span>
+	   		{{ item.quantity|number_format(0) }}
+		</div>
+		<div class="quantity">
+			<span class="visible-xs">Discount</span>
+			{{ 0|currency }}
+		</div>
+		<div class="total-price">
+			<span class="visible-xs">Total</span>
+			{{ (item.quantity *item.pivot.price)|currency }}
+		</div>
+	</div>
+</div>

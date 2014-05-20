@@ -1,0 +1,17 @@
+<script src="{{ 'js/jquery-1.11.0.min.js'|theme_resource }}"></script>
+<script src="{{ 'js/jquery-migrate-1.2.1.js'|theme_resource }}"></script>
+<script src="{{ 'css/bootstrap/js/bootstrap.min.js'|theme_resource }}"></script>
+
+{% if globals.active_page == 'home' %}
+	{{ partial('js-home') }}
+{% elseif globals.active_page == 'about' or globals.active_page == 'inner' or  globals.active_page == 'orders' %}
+	{{ partial('js-about') }}
+{% elseif globals.active_page == 'shop' %}
+	{{ partial('js-shop') }}
+{% elseif globals.active_page == 'checkout' or  globals.active_page == 'profile' or  globals.active_page == 'cart'%}
+	{{ partial('js-checkout') }}	
+{% endif %}
+
+
+<script type="text/javascript" src="/cms/core.js"></script>
+<script type="text/javascript" src="{{ 'js/script.js'|theme_resource }}"></script>

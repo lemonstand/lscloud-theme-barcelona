@@ -1,0 +1,128 @@
+<section class="section-footer">
+    <div class="footer-holder">
+        <div class="container">
+            <div class="col-xs-offset-2 col-xs-8 col-sm-6 col-sm-offset-0  col-md-3">
+                <div class="footer-column adress-column">
+                    <h4>connect with us</h4>
+
+                    <div class="content">
+                        <p class="bold">Barcelona - eCommerce</p>
+                        <p>
+                            4 East 80th Street, new york,ny
+                            <br>1-800-123-4567
+                            <br>sales@lemonstand.com
+                        </p>
+                        <div class="footer-socials">
+                            <ul>
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-twitter"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-pinterest"></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-offset-2 col-xs-8 col-sm-6 col-sm-offset-0  col-md-3">
+                <div class="footer-column">
+                    <h4>shop</h4>
+
+                    <div class="content">
+                        {{ partial('shop-category-tree') }}
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-offset-2 col-xs-8 col-sm-6 col-sm-offset-0  col-md-3">
+                <div class="footer-column">
+                    <h4>my account</h4>
+
+                    <div class="content">
+                    	<ul class="link-list">
+	                        {% if customer %}
+	                            <li><a href="{{ site_url('/orders') }}" title="My Orders">My Orders</a></li>
+	                            <li><a href="{{ site_url('/profile') }}" title="My Profile">My Profile</a></li>
+	                            <li><a href="{{ site_url('/logout') }}" title="Logout">Logout</a></li>
+	                        {% else %}
+	                            <li><a href="{{ site_url('/login') }}" title="Login / Register">Login / Register</a></li>
+	                        {% endif %}
+	                    </ul>
+                    
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-offset-2 col-xs-8 col-sm-6 col-sm-offset-0  col-md-3">
+                <div class="footer-column">
+                    <h4>our support</h4>
+
+                    <div class="content">
+                        <ul class="link-list">
+                            <li>
+                                <a href="">terms & conditions</a>
+                            </li>
+
+                            <li>
+                                <a href="">delivery</a>
+                            </li>
+                            <li>
+                                <a href="">secure payment</a>
+                            </li>
+
+                            <li>
+                                <a href="">contact us</a>
+                            </li>
+
+                            <li>
+                                <a href="">refunds</a>
+                            </li>
+
+                            <li>
+                                <a href="">track orders</a>
+                            </li>
+                            <li>
+                                <a href="">services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="footer-payment-icons">
+        <ul class="list-inline">
+            <li>
+                <img  alt="paypal" src="{{ 'images/payments-paypal.png'|theme_resource }} " /> 
+            </li>
+            <li>
+                <img alt="visa" src="{{ 'images/payments-visa.png'|theme_resource }} " /> 
+            </li>
+            <li>
+                <img alt="master card" src="{{ 'images/payments-mastercard.png'|theme_resource }} " /> 
+            </li>
+            <li>
+                <img alt="discover" src="{{ 'images/payments-discover.png'|theme_resource }} " /> 
+            </li>
+            <li>
+                <img alt="amex" src="{{ 'images/payments-amex.png'|theme_resource }} " /> 
+            </li>
+        </ul>
+        <div class="powered pull-right">Powered by <a href="http://www.lemonstand.com">LemonStand</a></div>
+    </div>
+</section>

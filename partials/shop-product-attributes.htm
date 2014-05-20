@@ -1,0 +1,12 @@
+{% if product.productAttributes.count %}
+<div class="attributes">
+  <table class="attributes-table">
+    {% for attribute in product.productAttributes %}
+      <tr>
+        <td><strong>{{ attribute.name }}:</strong></td>
+        <td>{{ attribute.value }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}

@@ -1,0 +1,42 @@
+<div class="col-lg-6 col-md-12">
+	<div class="row">
+	{% if product.images.count > 1 %}
+		<div class="col-xs-1 col-sm-3 hidden-xs">
+			<div class="single-product-vertical-gallery">
+				<a class="fa fa-angle-up up-btn" href="#up"></a>
+				<a class="fa fa-angle-down down-btn" href="#down"></a>
+				<ul>
+					{% for image in product.images %}					
+					<li>
+						<a class="vertical-gallery-item" href="#slide{{loop.index}}">
+							<img class="lazy" alt="{{ image.title }}" src="{{ image.thumbnail(113, 'auto') }}" />
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="col-xs-11 col-sm-9">
+			<div class="single-product-gallery">
+				<div class="nav-holder">
+					<a class="fa fa-angle-right next-btn" href="#next"></a>
+					<a class="fa fa-angle-left prev-btn" href="#prev"></a>    
+				</div>
+				<div class="single-product-slider"">
+					{% for image in product.images %}
+					<div class="single-product-gallery-item" id="slide{{loop.index}}">
+						<a data-rel="prettyphoto" href="{{ image.thumbnail(746, 'auto') }}">
+							<img alt="{{ image.title }}" src="{{ image.thumbnail(512, 'auto') }}" />
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="col-xs-12">
+			<img temprop="image"  class="lazy product-img" alt="{{ product.image.first.title }}" src="{{ product.images.first.thumbnail(610, 'auto') }}" />
+		</div>
+	{% endif %}
+	</div>
+</div>

@@ -1,0 +1,28 @@
+---
+action: 'shop:search'
+template: inner
+protocol: all
+published: true
+name: Search
+url: '/search/:page?'
+---
+
+<section id="fullwidth-products-grid" class="section-products-grid">
+	<div class="container">
+		<div class="product-grid no-move-down">
+			<div class="tab-pane active" id="fullwidth-page">
+				<h3>Products found: {{ products.get().count() }}</h3>
+			
+					{% paginate products by 1 %}
+					
+					{{ partial('shop-grid-view', { 'product': product, 'products': products, 'pagination': pagination}) }} 
+				
+					<div class="paging-holder">
+						{% navigation %}
+					</div>
+					
+					{% endpaginate %}
+			</div>
+		</div>
+	</div>
+</section>

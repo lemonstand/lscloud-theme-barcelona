@@ -1,0 +1,21 @@
+<ul class="basket-items ">
+	{% for item in cart.listitems %}
+	<li class="row">
+	    <div class="thumb col-xs-3">
+	        <img width="45" height="45" alt="" src="{{ item.product.images.first.thumbnail(100, 100) }}" />
+	    </div>
+	    <div class="body col-xs-9">
+	        <h5>{{ item.product.name }}</h5>
+	        <div class="price">
+	            <span>{{ item.total()|currency }}</span>
+	        </div>
+	        {%if edit_cart %}
+	        <a class="remove-item" href="#"
+	        	data-ajax-handler="shop:cart" 
+				data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart"
+				data-ajax-extra-fields="delete_item='{{ item.key }}'">x</a>
+	        {% endif %}
+	    </div>
+	</li>
+	{% endfor %}
+</ul>

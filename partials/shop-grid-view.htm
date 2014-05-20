@@ -1,0 +1,11 @@
+<div class="row">
+	{% for product in pagination.items %}
+		<div class="col-lg-4 col-xs-12 col-sm-6 product-holder">
+			{{ partial('shop-grid-item', { 'product': product }) }}
+		</div>
+	{% else %}
+		<div class="col-xs-12">
+			<h2 class="empty">There are no products in this category.</h2>
+		</div>
+	{% endfor %}
+</div>

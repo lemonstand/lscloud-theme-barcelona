@@ -1,0 +1,28 @@
+---
+action: 'shop:product'
+template: inner
+protocol: all
+published: true
+name: Product
+url: '/product/:urlName'
+---
+<section class="section-single-product-page">
+	<div class="container">
+		{{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+			{% if product %}
+				<div class="row" itemscope itemtype="http://data-vocabulary.org/Product">
+				
+					<div id="product-gallery">
+					    {{ partial('shop-product-gallery') }}
+					</div>    
+					
+					<div id="product-page">    
+						{{ partial('shop-product') }}
+					</div>
+				</div>
+			{% else %}
+				<h2>We are sorry, the requested product was not found.</h2>
+			{% endif %}
+		{{ close_form() }}
+	</div>
+</section>

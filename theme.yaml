@@ -1,0 +1,8 @@
+---
+name: Barcelona
+description: 'Barcelona - Responsive Theme'
+author: 'LemonStand eCommerce Inc.'
+website: 'http://lemonstand.com/'
+engine: twig
+404: '404'
+---

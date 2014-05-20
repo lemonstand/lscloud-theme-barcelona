@@ -1,0 +1,81 @@
+<!-- Checkout progress -->
+    {{ partial("shop-checkout-progress") }}
+<!-- End id="checkout-progress" -->
+<div class="panel-heading">
+	<h4 class="panel-title">
+		<span>shipping address</span>
+	</h4>
+</div>
+<div class="panel-body step-2">
+	{{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+		{{ flash() }}
+		<div class="row field-row">
+			<div class="col-xs-6">
+				<input class="required md-input  " placeholder="first name*" value="{{ shippingInfo.firstName }}" name="shippingInfo[firstName]" id="shipping_firstName"/>
+				<span class="error"></span>
+			</div>
+			<div class="col-xs-6">
+				<input class="required md-input" placeholder="last name*" value="{{ shippingInfo.lastName }}" name="shippingInfo[lastName]" id="shipping_lastName" />
+				<span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-12">
+				<input class="md-input" placeholder="company name (optional)" value="{{ shippingInfo.company }}" name="shippingInfo[phone]" id="company" />
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-12">
+				<input class="required md-input" placeholder="street address*" value="{{ shippingInfo.streetAddressLine1 }}" name="shippingInfo[streetAddressLine1]" id="shipping_address" />
+				<span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-10">
+				<input class="required md-input col-xs-12" placeholder="town*" value="{{ shippingInfo.city }}" name="shippingInfo[city]" id="shipping_city" />
+				<span class="error"></span>
+			</div>
+			<div class="col-xs-2">
+				<input class="required md-input " placeholder="postcode/zip*" value="{{ shippingInfo.postalCode }}" name="shippingInfo[postalCode]" id="shipping_postalCode" />
+				<span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-6">
+				<select class="md-select chzn-select col-xs-12" id="shipping_country" name="shippingInfo[countryId]" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}">
+                    {% for country in countries %}
+                    <option {{ option_state(shippingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error"></span>
+			</div>
+			<div class="col-xs-6">
+				<select class="md-select chzn-select col-xs-12" id="shipping_state" name="shippingInfo[stateId]" data-ajax-refresh >
+                    {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shippingInfo.stateId}) }}
+                </select>
+                <span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-6">
+				<input class="required md-input" placeholder="email address*" value="{{ shippingInfo.email }}" name="shippingInfo[email]" id="shipping_email" />
+				<span class="error"></span>
+			</div>
+			<div class="col-xs-6">
+				<input class="md-input" placeholder="phone number" value="{{ shippingInfo.phone }}" name="shippingInfo[phone]" id="shipping_phone" />
+				<span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row checkout-button-row">
+			<div class="col-xs-6 button-holder">
+				<a class="md-button gray step-btn" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart" data-ajax-extra-fields="nextStep=billing_info"><span class="fa fa-chevron-circle-left"></span> billing address</a>
+			</div>
+			<div class="col-xs-6 button-holder right">
+				<a class="md-button step-btn" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart">continue</a>
+			</div>
+		</div>
+		
+		<input type="hidden" name="step" value="shipping_info"/>
+        <input type="hidden" name="nextStep" value="shipping_method" />
+	</form>
+</div>

@@ -1,0 +1,39 @@
+---
+action: 'shop:login'
+template: inner
+protocol: all
+published: true
+name: Checkout
+url: /checkout-start
+---
+<section class="section-signin-page">
+	<div class="container">
+		<div class="sign-in-holder">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					{{ open_form({'data-ajax-handler': 'shop:onLogin'}) }}
+						<h3>returning customers</h3>
+						<p>
+							If you already have an account, please log-in here before checking out.
+						</p>
+						<input name="email" class="md-input col-xs-12" placeholder="e-mail" value="{{ post('email') }}">
+						<input type="password" name="password" class="md-input col-xs-12" placeholder="password">
+						<a class=" forget-link" href="{{ site_url('/password-restore') }}">forgot your password?</a>
+						<button class="md-button narrow " type="submit">sign in</button>
+						<input type="hidden" name="redirect" value="{{ site_url('/checkout') }}"/>
+					{{ close_form() }}
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<form class="form-guest-checkout">
+						<h3>guest checkout</h3>
+						<p>
+							Checkout without logging in or registering an account.
+						</p>
+						<br>
+						<a class="md-button narrow" href="{{ site_url('checkout') }}">continue as guest</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

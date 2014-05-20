@@ -1,0 +1,18 @@
+---
+template: home
+protocol: all
+published: true
+name: Registered
+url: /registered
+---
+<section class="section-shopping-cart-page">
+	<div class="container">
+	    {% if customer %}
+            <h1>Thank you for registering!</h1>
+            <h5>A confirmation email has been sent to your email address.</h5>
+            <p>You have been automatically logged in.</p>
+        {% else %}
+            <p>Please <a href="{{ root_url('/login') }}">sign in</a> using your email and password.</p>
+        {% endif %}
+    </div>
+</section>

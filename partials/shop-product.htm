@@ -1,0 +1,71 @@
+{% set on_sale = product.onSale %}
+<div class="col-lg-6 col-md-12 itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer"">
+	<div class="single-product-info-holder">
+		<div class="nav-area-holder">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="back">
+					{{ code_block('breadcrumbs') }}
+					</div>
+				</div>
+				<div class="col-xs-6">
+					
+				</div>
+			</div>
+		</div>
+		<div class="brand">
+		</div>
+		<h1 itemprop="name">{{ product.name }}</h1>
+
+		<div class="price">
+			{% if on_sale %}
+				<span class="previous-price">{{ product.fullPrice|currency }}</span>
+			{% endif %}
+			<span  itemprop="price">{{ product.price|currency }}</span>
+			<meta itemprop="currency" content="USD" />
+		</div>
+		{% if product.description %}
+			<div class="excerpt" itemprop="description">
+				{{ product.description|unescape }}
+			</div>
+		{% endif %}
+			
+		{{ partial('shop-product-attributes') }}
+				
+		{% if product.enabled %}
+			<div class="drop-down-holder">
+				{{ partial('shop-product-options') }}
+				<div class="quantitiy inline">
+					<h5>Quantity</h5>
+					<input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+				</div>
+			</div>
+			<div class="buttons-holder">
+				<div class="add-cart-holder inline">
+				{% if not product.isOutOfStock() %}
+					{{ flash() }}
+					<input type="hidden" name="productId" value="{{ product.id }}"/>
+					<a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+				{% else %}
+					<div class="not-available">
+						<h5>This product is temporarily unavailable</h5>
+					<div>
+				{% endif %}
+				</div>
+			</div>
+		{% else %}
+			<div class="not-available">
+				<h5>This product is not available</h5>
+			<div>
+		{% endif %}
+		
+		<div class="social-buttons">
+			<span>share with your friends</span>
+			<ul class="inline list-inline square-icons">
+				<li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+				<li class="twitter"><a href="https://twitter.com/intent/tweet?text={{ product.name }} http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+				<li class="gplus"><a href="http://pinterest.com/pin/create/button/?url=http:{{ site_url('/') }}product/{{ product.url_name}}&media={{ product.images.first.thumbnail(746, 'auto') }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>

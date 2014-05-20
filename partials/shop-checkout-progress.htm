@@ -1,0 +1,63 @@
+{% if step == 'billing_info' %}
+    
+    <div id="checkout-progress">
+    <ul class="breadcrumb list-inline checkout-progress">
+      <li><a class="progress-active">BILLING ADDRESS</a></li>
+      <li>SHIPPING ADDRESS</li>
+      <li>SHIPPING METHOD</li>
+      <li>PAY</li>
+    </ul>
+    </div>
+
+{% elseif step == 'shipping_info' %}
+    
+    <div id="checkout-progress">
+    <ul class="breadcrumb list-inline checkout-progress">
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=billing_info">BILLING ADDRESS</a></li>
+      <li><a class="progress-active">SHIPPING ADDRESS</a></li>
+      <li>SHIPPING METHOD</li>
+      <li>PAY</li>
+    </ul>
+    </div>
+
+{% elseif step == 'shipping_method' %}
+
+    <div id="checkout-progress">
+    <ul class="breadcrumb list-inline checkout-progress">
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=billing_info">BILLING ADDRESS</a></li>
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=shipping_info">SHIPPING ADDRESS</a></li>
+      <li><a class="progress-active">SHIPPING METHOD</a></li>
+      <li>PAY</li>
+    </ul>
+    </div>
+
+{% elseif step == 'pay' %}
+
+    <div id="checkout-progress">
+    <ul class="breadcrumb list-inline checkout-progress">
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=billing_info">BILLING ADDRESS</a></li>
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=shipping_info">SHIPPING ADDRESS</a></li>
+      <li><a href="#" 
+        data-ajax-handler="shop:checkout" 
+        data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
+        data-ajax-extra-fields="nextStep=shipping_method">SHIPPING METHOD</a></li>
+      <li><a class="progress-active">PAY</a></li>
+    </ul>
+    </div>
+
+{% endif %}

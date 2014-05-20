@@ -1,0 +1,39 @@
+{% set on_sale = product.onSale %}
+{{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+<div class="product-item text-center">
+	{% if product.images.count > 1 %}
+    	<a href="#next" class="mini-next"></a>
+    	<a href="#prev" class="mini-prev"></a>
+    	<div class="image ">
+    		<div class="product-mini-gallery">
+    			{% for image in product.images %}
+    			<a style="display:inline-block;" href="/product/{{ product.url_name }}">
+    				<img alt="{{ product.name }}" src="{{ image.thumbnail(212, 281) }}" width="212" height="281" />
+    			</a>
+    			{% endfor %}
+    		</div>
+    	</div>
+	{% else %}
+    	<a href="/product/{{ product.url_name }}">
+    		<img class="product-img" src="{{ product.image.thumbnail(212, 281) }}" alt="{{ product.name }}" />
+    	</a>
+	{% endif %}
+	<hr>
+	<div class="title uppercase bold">
+		<a href="/product/{{ product.url_name }}">{{ product.name }}</a>
+	</div>
+	<div class="price">
+		{% if on_sale %}
+		    <span class="previous-price">{{ product.fullPrice|currency }}</span>
+		{% endif %}
+		<span>{{ product.price|currency }}</span>
+	</div>
+	<div class="buttons-holder">
+		<div class="add-cart-holder">
+			{{ flash() }}
+			<input type="hidden" name="productId" value="{{ product.id }}"/>
+			<a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+		</div>
+	</div>
+</div>
+{{ close_form() }}

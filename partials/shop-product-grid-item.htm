@@ -1,0 +1,30 @@
+<div class="product-item text-center">
+{% if product.images.count > 1 %}
+	<a href="#next" class="mini-next"></a>
+    <a href="#prev" class="mini-prev"></a>
+    <div class="image ">
+        <div class="product-mini-gallery">
+		{% for image in product.images %}
+			<img alt="{{ product.name }}" src="{{ image.thumbnail(212, 'auto') }}" width="212" height="281" />
+		{% endfor %}
+		</div>
+    </div>
+{% else %}
+	<img src="{{ product.image.thumbnail(212, 'auto') }}" alt="{{ product.name }}" width="212" height="281" />
+{% endif %}
+
+	<hr>
+
+    <div class="title uppercase bold">
+        <a href="/product/{{ product.url_name }}">{{ product.name }}</a>
+    </div>
+    <div class="price">
+        <span>{{ product.price|currency }}</span>
+    </div>
+    <div class="buttons-holder">
+        <div class="add-cart-holder">
+        	<input type="hidden" name="productId" value="{{ product.id }}"/>
+            <a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,183 @@
+{{ flash() }}
+{{ open_form({'data-ajax-handler': 'shop:onUpdateCustomerProfile', 'class': 'custom', 'data-ajax-update': "#profile-addresses=shop-customerprofile,#profile-changepassword=shop-changepassword", 'data-validation-message' : ''}) }}
+<input type="hidden" name="billing[id]" value="{{ billing.id }}" />
+<div class="panel">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseOne">
+			1.billing address
+			</a>
+		</h4>
+	</div>
+	<div id="collapseOne" class="panel-collapse collapse in">
+		<div class="panel-body step-1">
+			<div class="row field-row">
+				<div class="col-xs-6">
+					<label for="first_name" class="hide">First Name</label>
+					<input name="billing[first_name]" id="first_name" type="text" class="text required md-input" value="{{ billing.first_name }}"  placeholder="first name*"/>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-6">
+					<label for="last_name" class="hide">Last Name</label>
+					<input name="billing[last_name]" id="last_name" type="text" class="text required md-input" value="{{ billing.last_name }}" placeholder="last name*"/>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="billing_address" class="hide">Address</label>
+					<textarea id="billing_address" name="billing[street_address]" class="required md-input" placeholder="street address*">{{ billing.street_address }}</textarea>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="billing_city" class="hide">City</label>
+					<input type="text" name="billing[city]" id="billing_city" value="{{ billing.city }}" class="required md-input col-xs-12" placeholder="city*"/>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-2">
+					<label for="billing_zip" class="hide">Zip Code</label>
+					<input type="text" id="billing_zip" name="billing[postal_code]" value="{{ billing.postal_code }}" class="required md-input " placeholder="postcode/zip*"/>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-5">
+					<label for="billing_country" class="hide">Country</label>
+					<!-- 
+						The state selector updates automatically when the country changes. 
+						See app.js for the implementation details. 
+						-->        
+					<select id="billing_country" name="billing[shop_country_id]" data-state-selector="#billing_state" data-current-state="{{ billing.country.id }}" class="chzn-select md-select col-xs-12">
+					{% for country in countries %}
+					<option {{ option_state(billing.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+					{% endfor %}
+					</select>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-5">
+					<label for="billing_state" class="hide">State</label>
+					<select class="chzn-select md-select col-xs-12" id="billing_state" name="billing[shop_state_id]" data-ajax-refresh > 
+					{{ partial('shop-stateoptions', {'states': billingStates, 'selected': billing.state.id}) }}
+					</select>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-6">
+					<label for="email" class="hide">E-mail Address</label>
+					<input type="text" name="billing[email]" id="email" value="{{ customer.email }}" class="required md-input" placeholder="email address*" />
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-6">
+					<label for="phone" class="hide">Phone Number</label>
+					<input type="text" name="billing[phone]" id="phone" value="{{ billing.phone }}" class="md-input" placeholder="phone number"/>
+					<span class="error"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="panel">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse2">
+			2.shipping address
+			</a>
+		</h4>
+	</div>
+	<div id="collapse2" class="panel-collapse collapse in">
+		<div class="panel-body step-1">
+			<div class="row field-row">
+				<a class="md-button" href="#" id="profile_billing_to_shipping"
+					data-ajax-handler="shop:onUpdateCustomerProfile"
+					data-ajax-update="#profile-addresses=shop-customerprofile"
+					data-validation-message=""
+					data-ajax-extra-fields="copy_billing_to_shipping='1'"
+					>Copy Billing Information</a>
+				<input type="hidden" name="shipping[id]" value="{{ shipping.id }}" />
+			</div>
+			<div class="row field-row">
+				<div class="col-xs-6">
+					<label for="shipping_first_name" class="hide">First Name</label>
+					<input type="text" name="shipping[first_name]" id="shipping_first_name" value="{{ shipping.first_name }}" class="required md-input  " placeholder="first name*"/>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-6">
+					<label for="shipping_last_name" class="hide">Last Name</label>
+					<input type="text" name="shipping[last_name]" id="shipping_last_name" value="{{ shipping.last_name }}" class="required md-input" placeholder="last name*" />
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="shipping_address" class="hide">Address</label>
+					<textarea name="shipping[street_address]" id="shipping_address" class="required md-input" placeholder="street address*">{{ shipping.street_address }}</textarea>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="shipping_city" class="hide">City</label>
+					<input type="text" name="shipping[city]" id="shipping_city" value="{{ shipping.city }}" class="required md-input col-xs-12" placeholder="town*"/>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-2">
+					<label for="shipping_zip" class="hide">Zip Code</label>
+					<input type="text" name="shipping[postal_code]" id="shipping_zip" value="{{ shipping.postal_code }}" class="required md-input " placeholder="postcode/zip*"/>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-5">
+					<label for="shipping_country" class="hide">Country</label>
+					<select class="chzn-select md-select col-xs-12" id="shipping_country" name="shipping[shop_country_id]" data-state-selector="#shipping_state" data-current-state="{{ shipping.country.id }}">
+					{% for country in countries %}
+					<option {{ option_state(shipping.country.id, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
+					{% endfor %}
+					</select>
+					<span class="error"></span>
+				</div>
+				<div class="col-xs-5">
+					<label for="shipping_state" class="hide">State</label>
+					<select class="chzn-select md-select col-xs-12" id="shipping_state" name="shipping[shop_state_id]" data-ajax-refresh> 
+					{{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shipping.state.id}) }}
+					</select>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-6">
+					<label for="shipping_phone" class="hide">Phone Number</label>
+					<input type="text" name="shipping[phone]" id="shipping_phone" value="{{ shipping.phone }}" class="md-input" placeholder="phone number"/>
+					<span class="error"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="field-row ">
+	<input type="submit" class="md-button button" value="Save Address Information"/>
+	<input type="hidden" name="flash" value="Your profile has been successfully updated."/>
+	<input type="hidden" name="redirect" value="{{ root_url('/profile') }}"/>
+</div>
+</form>
+<div class="panel">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse3">
+			3.change password
+			</a>
+		</h4>
+	</div>
+	<div id="collapse3" class="panel-collapse collapse in">
+		<div class="panel-body step-3">
+		
+		<div id="profile-changepassword">
+			{{ partial('shop-changepassword') }}
+		</div>
+
+		</div>
+	</div>
+</div>

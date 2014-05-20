@@ -1,0 +1,54 @@
+---
+description: 'Payment form partial for Stripe Payments payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" value="{{ paymentMethod.id}}" name="payment_method_id">
+    <div class="form">
+        <div class="row field-row">
+	        <div class="col-xs-6 field text left">
+	            <label for="FIRSTNAME" class="hide">Cardholder First Name</label>
+	            <div><input autocomplete="off" name="firstName" value="" id="firstName" type="text" class="text md-input" placeholder="Cardholder First Name"/></div>
+	        </div>
+	        <div class="col-xs-6 field text right">
+	            <label for="LASTNAME" class="hide">Cardholder Last Name</label>
+	            <div><input autocomplete="off" name="lastName" value="" id="LASTNAME" type="text" class="text md-input" placeholder="Cardholder Last Name"/></div>
+	        </div>
+        </div>
+        
+        <div class="row field-row">
+	        <div class="col-xs-12 field text">
+	            <label for="ACCT" class="hide">Credit Card Number</label>
+	            <div><input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="text md-input credit-card-input" placeholder="Credit Card Number"/></div>
+	        </div>
+        </div>
+        
+        <div class="row field-row">
+	        <div class="col-xs-6 field select left">
+	            <label for="EXPDATE_MONTH" class="hide">Expiration Date - Month</label>
+	            <div><input type="text" name="expiryMonth" class="md-input" placeholder="Expiration Date - Month"></div>
+	        </div>
+	        <div class="col-xs-6 field text right">
+	            <label for="EXPDATE_YEAR" class="hide">Expiration Date - Year</label>
+	            <div><input type="text" name="expiryYear" class="md-input" placeholder="Expiration Date - Year"></div>
+	        </div>
+        </div>
+        
+        <div class="row field-row">
+	        <div class="field text">
+	            <div class="col-xs-4">
+	            	<label for="CVV2" class="hide">
+		                CVV2
+		            </label>
+		            <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="text md-input" placeholder="CVV2"/></div>
+	            <div class="col-xs-8">
+	                <small class="comment">For MasterCard, Visa, and Discover, the CSC is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card.</small>
+	            </div>	            
+	        </div>
+        </div>
+    </div>
+    <div class="row field-row">
+	    <div class="col-xs-12 button-holder right">
+	    	<input type="submit" value="Pay" class="button md-button step-btn">
+		</div>
+	</div>
+</form>

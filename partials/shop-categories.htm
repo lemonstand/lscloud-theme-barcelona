@@ -1,0 +1,29 @@
+<div class="accordion" >
+	{% for category in categories %}
+	<div class="accordion-group">
+		<div class="accordion-heading">
+		{% if category.children.count %}
+				<a class="accordion-toggle" data-toggle="collapse" href="#collapse{{loop.index}}">{{ category.name }}</a>
+		</div>
+		<div id="collapse{{loop.index}}" class="accordion-body collapse in">
+			<div class="accordion-inner">
+				<a href="/category/{{ category.fullUrlName }}">All {{ category.name }}</a>
+				{% tree category.children %}
+				<ul>
+					{% for category in tree.items %}
+						<li>
+							<a href="/category/{{ category.parent.url_name }}/{{ category.url_name }}">{{ category.name }}</a>
+							{% branch category.children %}
+						</li>
+					{% endfor %}
+				</ul>
+				{% endtree %}
+			</div>
+		</div>
+		{% else %}
+				<a class="accordion-toggle direct-link" href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+		</div>
+		{% endif %}
+	</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,74 @@
+---
+description: 'Payment form partial for PayPal Pro payment method'
+---
+<form method="post" action="" data-ajax-handler="shop:onPay">
+    <input type="hidden" value="{{  paymentMethod.id}}" name="payment_method_id">
+    <div class="form">
+    	<div class="row field-row">
+	        <div class="col-xs-12 field select">
+	            <label for="creditCardType">Credit Card Type</label>
+                <select name="creditCardType" class="md-select col-xs-12">
+                    <option value="Visa">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Discover">Discover</option>
+                    <option value="Amex">American Express</option>
+                </select>
+	        </div>
+    	</div>
+    	
+    	<div class="row field-row">
+	        <div class="col-xs-6 field text left">
+	            <label for="firstName" class="hide">Cardholder First Name</label>
+	            <div><input autocomplete="off" name="firstName" value="" id="firstName" type="text" class="text md-input" placeholder="Cardholder First Name"/></div>
+	        </div>
+	        <div class="col-xs-6 field text right">
+	            <label for="lastName" class="hide">Cardholder Last Name</label>
+	            <div><input autocomplete="off" name="lastName" value="" id="lastName" type="text" class="text md-input" placeholder="Cardholder Last Name"/></div>
+	        </div>
+    	</div>
+		
+		<div class="row field-row">
+	        <div class="col-xs-12 field text">
+	            <label for="cardNumber" class="hide">Credit Card Number</label>
+	            <div><input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="text md-input credit-card-input" placeholder="Credit Card Number"/></div>
+	        </div>
+		</div>
+				
+		<div class="row field-row">
+	        <div class="col-xs-6 field text left">
+	            <label for="expiryMonth">Expiration Date - Month</label>
+	            <select name="expiryMonth" class="md-select col-xs-12">
+	            {% for i in 1..12 %}
+	                <option value="{{ i }}">{{ i }}</option>
+	            {% endfor %}
+	            </select>
+	        </div>
+	        <div class="col-xs-6 field text right">
+	            <label for="expiryYear">Expiration Date - Year</label>
+	            <select autocomplete="off" name="expiryYear" id="expiryYear" class="md-select col-xs-12">
+	                {% for i in 2014..2034 %}
+	                <option value="{{ i }}">{{ i }}</option>
+	                {% endfor %}
+	            </select>
+	        </div>
+		</div>
+		
+		<div class="row field-row">
+	        <div class="col-xs-4">
+	        	<label for="securityCode" class="hide">
+	                CVV2
+	        	</label>
+                <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="text md-input" placeholder="CVV2"/>
+            </div>
+	        <div class="col-xs-8 field text">
+	                <small class="comment">For MasterCard, Visa, and Discover, the CSC is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card.</small>
+	        </div>
+		</div>
+		
+    </div>
+    <div class="row field-row">
+	    <div class="col-xs-12 button-holder right">
+		    <input type="submit" value="Pay" class="button md-button step-btn">
+	    </div>
+    </div>
+</form>

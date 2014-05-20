@@ -1,0 +1,44 @@
+<div class="col-md-12 col-lg-3">
+	<div class="right-sidebar">
+	{% if items.count %}
+		<div class="widget shopping-cart-summary">
+			<h4 class="md-bordered-title">shopping cart summary</h4>
+			<form>
+				<fieldset>
+					<label class="col-xs-6">cart subtotal</label>
+					<span class="col-xs-6 value">{{ cart.getSubtotal()|currency }}</span>
+				</fieldset>
+				{% if not active_page == 'shop' %}
+				<fieldset>
+					<label class="col-xs-6">sales tax</label>
+					<span class="col-xs-6 value">{{ cart.getTotalTax|currency }}</span>
+				</fieldset>
+				<fieldset>
+					<label class="col-xs-6">shipping</label>
+					<span class="col-xs-6 value">{{ totals.totalShippingQuote|currency }}</span>
+				</fieldset>
+				<hr>
+				<fieldset class="total">
+					<label class="col-xs-6">order total</label>
+					<span class="col-xs-6 value">{{ totals.total|currency }}</span>
+				</fieldset>
+				{% else %}
+				    {% set active_page = globals.active_page %}
+					<a class="md-button black" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
+					{% if customer %}
+						<a class="md-button large col-xs-12" href="{{ site_url('/checkout') }}">Checkout</a>
+						{% if active_page == "cart" %}<a href="{{ site_url('shop') }}">continue shopping</a>{% endif %}
+					{% else %}
+						<a class="md-button large col-xs-12" href="{{ site_url('/checkout-start') }}">Checkout</a>
+						{% if active_page == "cart" %}<a href="{{ site_url('shop') }}">continue shopping</a>{% endif %}
+					{% endif %}
+				{% endif %}
+			</form>
+		</div>
+
+	{% else %}
+		<h4 class="md-bordered-title">Your cart is empty!</h4>
+		<a class="md-button col-xs-12" href="{{ site_url('shop') }}">Continue shopping <span class="fa fa-arrow-circle-right"></span></a>
+	{% endif %}
+	</div>
+</div>

@@ -1,0 +1,48 @@
+---
+action: 'shop:receipt'
+template: inner
+protocol: all
+published: true
+name: Receipt
+url: '/receipt/:paymenthash'
+---
+<section class="section-shopping-cart-page">
+	<div class="container">
+	{% if invoice %}
+		<div class="row">
+			<div class="col-xs-12">
+				<h4>Please keep this information for your records.</h4>
+				<hr>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-lg-9">
+				<div class="items-holder">
+					{{ partial('shop-invoiceitems') }}
+				</div>
+			</div>
+		{% if invoice.isPaid() %}
+			<div class="col-md-12 col-lg-3">
+				<div class="right-sidebar">
+				<p><strong>Order number: </strong> #{{ invoice.order.number }} </p>
+				<p><strong>Payment method: </strong> {{ payment.guessPaymentMethod().name }}</p>
+				<p><strong>Order Date: </strong> {{ invoice.order.created_at.format('M jS, Y') }}</p>
+				{{ partial('shop-invoicetotals') }}
+					<div class="right">
+						<a class="md-button button" href="{{ site_url('shop') }}">Continue Shopping</a>
+					</div>
+				</div>
+			</div>
+				
+		{% else %}
+			<p><a class="md-button button" href="{{ site_url('review/'~order.order_hash) }}">Pay the order</a></p>
+		{% endif %}
+		</div>
+	{% else %}
+			<p class="flash error">Invoice not found.</p>
+		</div>
+	{% endif %}
+	</div>
+</section>
+
+    

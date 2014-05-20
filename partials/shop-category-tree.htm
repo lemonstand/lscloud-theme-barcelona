@@ -1,0 +1,10 @@
+{% tree categories %}
+    <ul class="{% if tree.topLevel %} categories-group link-list {% else %} sub-category {% endif %}">
+        {% for category in tree.items %}
+            <li>
+                <a href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+                {% branch category.children %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endtree %}

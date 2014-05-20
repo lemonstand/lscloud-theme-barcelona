@@ -1,0 +1,8 @@
+<p><strong>Discount applied:</strong> <i>{{ 0|currency }}</i></p>
+<p><strong>Subtotal:</strong> <i>{{ invoice.subtotal|currency }}</i></p>
+<p><strong>Sales Tax:</strong> <i>{{ invoice.tax_total|currency }}</i></p>
+<p><strong>Shipping:</strong> <i>{{ invoice.total_shipping_quote|currency }}</i></p>
+{% if invoice.shipping_tax %}
+  <p><strong>Shipping Taxes:</strong> <i>{{ order.shipping_tax|currency }}</i></p>
+{% endif %}
+<p class="subtotal"><strong>Total:</strong>  <i>{{ invoice.total|currency }}</i></p>

@@ -1,0 +1,27 @@
+---
+action: 'shop:checkout'
+template: inner
+protocol: all
+published: true
+name: Checkout
+url: /checkout
+---
+<section class="section-checkout-page section-shopping-cart-page">
+	<div class="container">
+		<div class="row">
+		    <div class="col-md-12 col-lg-9">
+		    	<div class="panel-group checkout-accordions">
+					<div class="panel">
+						
+						<div id="checkout-page">{{ partial('shop-checkout') }}</div>
+						
+					</div>
+		    	</div>	
+			</div>
+			{{ open_form({'class': 'custom'}) }}
+			<div id="cart-totals">{{ partial('shop-cart-totals', {'items': items}) }}</div>
+			{{ close_form() }}
+		</div>	
+		
+	</div>
+</section>

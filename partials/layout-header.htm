@@ -1,0 +1,46 @@
+{% set active_page = globals.active_page|default('home') %}
+        
+<header>
+    <div class=" container">
+        <section class="style-one-header top-area">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="login-menu-holder ic-sm-user">
+						{% if customer %}
+							Welcome, {{ customer.first_name }}!
+							<a href="{{ site_url('logout') }}">Logout</a>
+						{% else %}
+							<a href="{{ site_url('login') }}">Login or Register</a>
+						{% endif %}
+                    </div>
+                    <div class="hotline-holder ic-sm-phone">
+                        <label>hotline:</label>
+                        <span>1-800-123-4567</span>
+                    </div>
+                </div>
+                <div class="top-logo-holder col-sm-4 col-xs-12">
+
+                    <div class="top-logo">
+                        <a href="{{ site_url('/') }}"><img src="{{ 'images/barcelona-logo.png'|theme_resource }}" alt="Barcelona" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="wish-cart-holder">
+                        <div class="top-cart-holder ic-sm-basket" id="mini-cart">
+							{{ partial('shop-minicart') }}
+                        </div>
+                        <div class="search-holder">
+                            {{ open_form({'method': 'get', 'action': site_url('search')}) }}
+                                <input type="text" name="query" id="query" placeholder="Search" autocomplete="off" value="{{query|unescape}}">
+                            {{ close_form() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{ partial('layout-navigation') }}
+        
+    </div>
+</header> {# /Page Header #}

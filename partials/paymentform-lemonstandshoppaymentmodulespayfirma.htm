@@ -1,0 +1,94 @@
+---
+description: 'Payment form partial for Payfirma payment method'
+---
+<form method="post" action="" id="payfirma-payment-form">
+    <input type="hidden" name="payment_method_id" value="{{ paymentMethod.id}}">
+    <div class="form">
+        <div class="row field-row">
+	        <div class="col-xs-6 field text left">
+	            <label for="FIRSTNAME" class="hide">Cardholder First Name</label>
+	            <div><input autocomplete="off" name="FIRSTNAME" value="" id="FIRSTNAME" type="text" class="text md-input" placeholder="Cardholder First Name"/></div>
+	        </div>
+	        <div class="col-xs-6 field text right">
+	            <label for="LASTNAME" class="hide">Cardholder Last Name</label>
+	            <div><input autocomplete="off" name="LASTNAME" value="" id="LASTNAME" type="text" class="text md-input" placeholder="Cardholder Last Name"/></div>
+	        </div>
+        </div>
+        
+        <div class="row field-row">
+	        <div class="col-xs-12 field text">
+	            <label for="ACCT" class="hide">Credit Card Number</label>
+	            <div><input autocomplete="off" name="ACCT" value="" id="ACCT" type="text" class="text md-input credit-card-input" placeholder="Credit Card Number"/></div>
+	        </div>
+        </div>
+		
+		<div class="row field-row">
+	        <div class="col-xs-6 field select left">
+	            <label for="EXPDATE_MONTH">Expiration Date - Month</label>
+	            <select name="EXPDATE_MONTH" id="EXPDATE_MONTH" class="md-select col-xs-12">
+	            {% for i in 1..12 %}
+	                <option value="{{ i }}">{{ i }}</option>
+	            {% endfor %}
+	            </select>
+	        </div>
+		
+	        <div class="col-xs-6 field text right">
+	            <label for="EXPDATE_YEAR">Expiration Date - Year</label>
+	
+	            <select autocomplete="off" name="EXPDATE_YEAR" id="EXPDATE_YEAR" class="md-select col-xs-12">
+	                {% for i in 2014..2034 %}
+	                <option value="{{ i|slice(2, 2) }}">{{ i }}</option>
+	                {% endfor %}
+	            </select>
+	        </div>
+		</div>
+		
+		<div class="row field-row">
+	        <div class="col-xs-4"><input autocomplete="off" name="CVV2" value="" id="CVV2" type="text" class="text md-input" placeholder="Card Security Code"/></div>
+	        <div class="col-xs-8 field text">
+	            <label for="CVV2" class="hide">
+	                Card Security Code
+	            </label>
+				<small class="comment">For MasterCard, Visa, and Discover, the CSC is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card.</small>
+	            
+	        </div>
+		</div>
+    </div>
+    <div class="clear"></div>
+    <div class="row field-row">
+	    <div class="col-xs-12 button-holder right">
+		    <input type="button" value="Pay" class="button md-button step-btn" onClick="doPayfirma(this)">
+	    </div>
+    </div>
+</form>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/ls2-vendor-code/payfirma/payfirma.minified.js"></script>
+<script type="text/javascript">
+    function doPayfirma(button) {
+        var form = $(button).parents('form')
+        var card_number = form.find('input[name="ACCT"]').val()
+        var card_expiry_month = form.find('select[name="EXPDATE_MONTH"]').val()
+        var card_expiry_year = form.find('select[name="EXPDATE_YEAR"]').val()
+        var cvv2 = form.find('input[name="CVV2"]').val()
+
+        var key = "{{ paymentMethod.getConfigSetting('encryptionKey') }}"
+        var formData = {};
+        $.each($('#payfirma-payment-form input, #payfirma-payment-form select'), function() {
+            formData[this.name] = this.value; }
+            );
+        var z = new Payfirma(key, {
+                'card_number': card_number,
+                'card_expiry_month': card_expiry_month,
+                'card_expiry_year':  card_expiry_year,
+                'cvv2': cvv2
+            }, formData, '/ls_payfirma_process', onAfterPayfirmaPay)
+    }
+
+    function onAfterPayfirmaPay(response) {
+        var r = $.parseJSON(response)
+        if (r.error)
+            alert(r.error)
+
+        if (r.redirect)
+            window.location = r.redirect
+    }
+</script>
