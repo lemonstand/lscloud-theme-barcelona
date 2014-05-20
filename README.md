@@ -5,6 +5,8 @@ LemonStand Cloud Barcelona Theme
 
 Created by: LemonStand eCommerce Inc. 
 
+Demo Store: https://barcelona.lemonstand.com/
+
 This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License
 
 http://creativecommons.org/licenses/by-nd/4.0/
