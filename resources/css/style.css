@@ -1,9 +1,6 @@
-/*Modello - Responsive eCommerce Template
-PSD Designer: Michał Kowalski <aodteam@wp.pl>
-Front-End Developer : Amin Diary <amindiary@gmail.com>
+/*Barcelona - Responsive eCommerce Template
 
-
-Content Tabel
+Content Table
 +---------------+
 1-General Classes
 2-Transitions
@@ -674,7 +671,6 @@ text-align:center;
     display:block;
 }
 .top-logo{
-margin-right:100px;
 margin-top:-27px;
 }
 
@@ -4010,4 +4006,9 @@ margin-bottom:30px;
 
 .attributes-table td{
     padding-right:10px;
+}
+
+.cart-empty-button{
+    margin-top:20px;
+    margin-bottom: 10px;
 }
