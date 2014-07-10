@@ -80,3 +80,35 @@ url: /contact
 		</div>
 	</div>
 </section>
+
+<section class="section-contact-form">
+	<div class="panel-body">
+	<h3>Send us a message</h3>
+	{{ open_form({'data-ajax-handler': 'system:onSendMessage'}) }}
+		{{ flash() }}
+
+		<div class="row field-row">
+			<div class="col-xs-6">
+				<input class="required md-input" placeholder="email address*" value="" name="fields[email]" id="fields_email"/>
+				<span class="error"></span>
+			</div>
+		</div>
+
+		<div class="row field-row">
+			<div class="col-xs-6">
+				<input class="required md-input" placeholder="name*" value="" name="fields[name]" id="fields_name" />
+				<span class="error"></span>
+			</div>
+		</div>
+
+		<div class="row field-row">
+			<div class="col-xs-6">
+				<textarea rows="10" class="required md-input" placeholder="message*" value="" name="fields[message]" id="fields_message"></textarea>
+				<span class="error"></span>
+			</div>
+		</div>
+
+		<input type="submit" class="md-button" value="Submit"/>
+		<input type="text" name="hp" value="" style="display: none"/>
+	{{ close_form() }}
+</section>

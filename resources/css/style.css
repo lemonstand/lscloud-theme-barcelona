@@ -2331,6 +2331,21 @@ margin-right:12px;
     
 }
 
+.section-contact-form h3 {
+  margin-bottom: 28px;
+}
+
+.section-contact-form .field-row {
+  margin-bottom: 28px;
+}
+
+.section-contact-form .field-row .md-input {
+  width: 100%;
+}
+
+.section-contact-form .field-row textarea {
+  text-transform: none;
+}
 
 .map-holder {
     background-color: #000;
