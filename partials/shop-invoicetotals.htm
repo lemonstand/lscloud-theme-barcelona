@@ -1,4 +1,4 @@
-<p><strong>Discount applied:</strong> <i>{{ 0|currency }}</i></p>
+<p><strong>Discount applied:</strong> <i>{{ invoice.total_discount|currency }}</i></p>
 <p><strong>Subtotal:</strong> <i>{{ invoice.subtotal|currency }}</i></p>
 <p><strong>Sales Tax:</strong> <i>{{ invoice.tax_total|currency }}</i></p>
 <p><strong>Shipping:</strong> <i>{{ invoice.total_shipping_quote|currency }}</i></p>

@@ -4,14 +4,20 @@
 		<div class="widget shopping-cart-summary">
 			<h4 class="md-bordered-title">shopping cart summary</h4>
 			<form>
+				{% if totals.discountTotal > 0 %}
+					<fieldset>
+						<label class="col-xs-6">discount</label>
+						<span class="col-xs-6 value">{{ totals.discountTotal|currency }}</span>
+					</fieldset>
+				{% endif %}
 				<fieldset>
 					<label class="col-xs-6">cart subtotal</label>
-					<span class="col-xs-6 value">{{ cart.getSubtotal()|currency }}</span>
+					<span class="col-xs-6 value">{{ totals.subtotal|currency }}</span>
 				</fieldset>
 				{% if not active_page == 'shop' %}
 				<fieldset>
 					<label class="col-xs-6">sales tax</label>
-					<span class="col-xs-6 value">{{ cart.getTotalTax|currency }}</span>
+					<span class="col-xs-6 value">{{totals.totalTax|currency }}</span>
 				</fieldset>
 				<fieldset>
 					<label class="col-xs-6">shipping</label>
@@ -24,6 +30,7 @@
 				</fieldset>
 				{% else %}
 				    {% set active_page = globals.active_page %}
+				    <input class="md-input col-xs-12" placeholder="coupon code" value="{{ coupon_code }}" name="coupon" id="coupon"/>
 					<a class="md-button black" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart">Update cart</a>
 					{% if customer %}
 						<a class="md-button large col-xs-12" href="{{ site_url('/checkout') }}">Checkout</a>
