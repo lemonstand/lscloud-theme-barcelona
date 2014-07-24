@@ -42,7 +42,7 @@
 			</div>
 			<div class="buttons-holder">
 				<div class="add-cart-holder inline">
-				{% if not product.isOutOfStock() %}
+				{% if not product.isOutOfStock() or product.allow_preorder %}
 					{{ flash() }}
 					<input type="hidden" name="productId" value="{{ product.id }}"/>
 					<a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
