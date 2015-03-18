@@ -35,6 +35,7 @@
 		{% if product.enabled %}
 			<div class="drop-down-holder">
 				{{ partial('shop-product-options') }}
+				{{ partial('shop-product-extras') }}
 				<div class="quantitiy inline">
 					<h5>Quantity</h5>
 					<input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>

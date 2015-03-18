@@ -9,6 +9,9 @@
 	<meta name="Description" content="{{ page.description }}"/>
 	<meta name="Keywords" content="{{ page.keywords }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
+    <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
     
     <link rel="stylesheet" type="text/css" href="/cms/core.css">
     
@@ -25,3 +28,55 @@
 	{% else %}
 		{{ partial('css-inner') }}
     {% endif %}
+
+
+    <style type="text/css">
+        .md-button{
+            background-color:{{ theme.baseColor }};
+        }
+        .md-button:hover{
+            background-color:{{theme.hoverColor}};
+        }
+        .top-cart-price{
+            color:{{ theme.baseColor }};
+        }
+        .total-buble{
+            background-color:{{ theme.baseColor }};
+        }
+        a:hover{
+            color:{{ theme.baseColor }};
+        }
+        .section-footer:before{
+            background-color:{{ theme.baseColor }};
+        }
+        header:after{
+            background-color:{{ theme.baseColor }};
+        }
+        .section-aboutus-page .members-holder .member-item .position, .section-stats .stat-item .value, .content-holder.about-us p a{
+            color:{{ theme.baseColor }};
+        }
+        .content-holder.about-us p a{
+            border-bottom:1px solid {{ theme.baseColor }};
+        }
+        .grid-list-buttons li.active i{
+            color:{{theme.baseColor}};
+        }
+        .address-column p a{
+            color:{{theme.baseColor}};
+        }
+
+        .product-item:hover .product-item{
+            padding-bottom:0;
+            height:460px;
+        }
+        .breadcrumb{
+            border-bottom:solid {{theme.baseColor}} 6px;
+        }
+        .single-product-info-holder .nav-area-holder .back a{
+            color:{{theme.baseColor}}5;
+        }
+    </style>
+
+
+
+

@@ -1,8 +1,23 @@
 ---
-name: Barcelona
+name: 'Barcelona'
 description: 'Barcelona - Responsive Theme'
 author: 'LemonStand eCommerce Inc.'
 website: 'http://lemonstand.com/'
 engine: twig
 404: '404'
+customFields:
+  logoImage: { type: image, title: 'Global: Logo Image', default: '@/images/barcelona-logo.png'}
+  faviconImage: {type:image, title:'Favicon Image (Image you see on the chrome)', default:'@/images/ic-heart-hover.png'}
+  baseColor: { type:color, title:'Global: Base Color', default: 'rgb(52, 169, 148)'}
+  hoverColor: { type:color, title:'Global: Button Hover Color', default: '#2d8e7d'}
+  homepageImageBannerA: { type:image, title:'Home: Banner Image 1', default: '@/images/banner-freeshipping.jpg'}
+  homepageImageBannerB: { type:image, title:'Home: Banner Image 2', default: '@/images/banner-design-onsale.jpg'}
+  aboutImageBanner: {type:image, title:'About: Banner Image', default: '@/images/banner-about-us.jpg'}
+  shopImageBanner: {type:image, title:'Shop: Banner Image', default: '@/images/pgrid-banner-img.jpg'}
+  socialFacebookUrl: { type: text, title: 'Global: Facebook URL', default: 'http://facebook.com/lemonstand' }
+  socialTwitterUrl: { type: text, title: 'Global: Twitter URL', default: 'http://twitter.com/' }
+  socialPinterestUrl: { type: text, title: 'Global: Pinterest URL', default: 'http://www.pinterest.com/' }
 ---
+
+
+

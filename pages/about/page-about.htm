@@ -8,7 +8,7 @@ url: /about
 ---
 <section class="section-aboutus-page">
     <div class="banner">
-        <img alt="" class="lazy" src="{{ 'images/banner-about-us.jpg'|theme_resource }}" />  
+        <img alt="" class="lazy" src="{{ theme.aboutImageBanner.thumbnail('auto','auto') }}" />  
     </div>
     <div class="container">
         <div class="row about-us-top">
@@ -21,18 +21,7 @@ url: /about
             </div>
             <div class=" col-sm-12 col-md-7">
                 <div class="content-holder about-us">
-                    <h3>Sed eleifend ipasum id auctor ultrices roin consectetur tincidunt dignissim.</h3>
-                    <p>
-
-                        <strong>Aenean placerat tempus iaculis. In venenatis quis elit ut facilisis.</strong> Sed nec massa accumsan est egestas mollis vitae id mi. Aenean et laoreet velit. Pellentesque nec massa pellentesque, tempus purus lacinia, vestibulum eros. 
-                    </p>
-                    <p>
-                        Cras porttitor sagittis ipsum, eu molestie tellus accumsan quis. Nam lectus nibh, lobortis sodales tempor vitae, tincidunt sit amet metus. Donec posuere lectus lacus, condimentum scelerisque leo fringilla sed. Suspendisse eu lorem vulputate nisl consectetur sollicitudin. <a href="#">Pellentesque accumsan luctus porta.</a>
-                    </p>
-
-                    <blockquote class="md-quote">
-                        <p>Sed malesuada diam sed felis volutpat, quis convallis leo ullamcorper. Vestibulum dictum tortor in nisi gravida suscipit. </p>
-                    </blockquote>
+                    {{ content_block('about-main') }}
                 </div>
             </div>
         </div>
@@ -40,74 +29,22 @@ url: /about
         <div class="row members-holder">
             <div  class="col-xs-12 col-sm-6 col-lg-3  ">
                 <div class="member-item">
-                    <div class="image">
-                        <img class="lazy" alt="" src="{{ 'images/team-member-01.png'|theme_resource }}" />
-                    </div>
-                    <div class="member-info">
-                        <span class="name">Michał Kowalski</span><span class="devider">|</span><span class="position">Designer</span>
-                        <p>
-                            Cras porttitor sagittis ipsum, eu molestie tellus accumsan quis. Nam lectus nibh, lobortis sodales tempor vitae.
-                        </p>
-                        <ul class="list-inline member-socials">
-                            <li><a class="fa fa-facebook" href="#fb"></a></li>
-                            <li><a class="fa fa-twitter" href="#tw"></a></li>
-                            <li><a class="fa fa-google-plus" href="#gplus"></a></li>
-                        </ul>
-                    </div>
+                    {{ content_block('person-one') }}
                 </div>
             </div>
             <div  class="col-xs-12 col-sm-6 col-lg-3  ">
                 <div class="member-item">
-                    <div class="image">
-                        <img class="lazy" alt="" src="{{ 'images/team-member-02.png'|theme_resource }}" />
-                    </div>
-                    <div class="member-info">
-                        <span class="name">Julia Doe</span><span class="devider">|</span><span class="position">ceo</span>
-                        <p>
-                            Cras porttitor sagittis ipsum, eu molestie tellus accumsan quis. Nam lectus nibh, lobortis sodales tempor vitae.
-                        </p>
-                        <ul class="list-inline member-socials">
-                            <li><a class="fa fa-facebook" href="#fb"></a></li>
-                            <li><a class="fa fa-twitter" href="#tw"></a></li>
-                            <li><a class="fa fa-google-plus" href="#gplus"></a></li>
-                        </ul>
-                    </div>
+                    {{ content_block('person-two') }}
                 </div>
             </div>
             <div  class="col-xs-12 col-sm-6 col-lg-3  ">
                 <div class="member-item">
-                    <div class="image">
-                        <img class="lazy" alt="" src="{{ 'images/team-member-03.png'|theme_resource }}" />
-                    </div>
-                    <div class="member-info">
-                        <span class="name">Emin Diary</span><span class="devider">|</span><span class="position">developer</span>
-                        <p>
-                            Cras porttitor sagittis ipsum, eu molestie tellus accumsan quis. Nam lectus nibh, lobortis sodales tempor vitae.
-                        </p>
-                        <ul class="list-inline member-socials">
-                            <li><a class="fa fa-facebook" href="#fb"></a></li>
-                            <li><a class="fa fa-twitter" href="#tw"></a></li>
-                            <li><a class="fa fa-google-plus" href="#gplus"></a></li>
-                        </ul>
-                    </div>
+                    {{ content_block('person-three') }}
                 </div>
             </div>
             <div  class="col-xs-12 col-sm-6 col-lg-3  ">
                 <div class="member-item">
-                    <div class="image">
-                        <img class="lazy" alt="" src="{{ 'images/team-member-04.png'|theme_resource }}" />
-                    </div>
-                    <div class="member-info">
-                        <span class="name">john doe</span><span class="devider">|</span><span class="position">delivery</span>
-                        <p>
-                            Cras porttitor sagittis ipsum, eu molestie tellus accumsan quis. Nam lectus nibh, lobortis sodales tempor vitae.
-                        </p>
-                        <ul class="list-inline member-socials">
-                            <li><a class="fa fa-facebook" href="#fb"></a></li>
-                            <li><a class="fa fa-twitter" href="#tw"></a></li>
-                            <li><a class="fa fa-google-plus" href="#gplus"></a></li>
-                        </ul>
-                    </div>
+                    {{ content_block('person-four') }}
                 </div>
             </div>
         </div>
@@ -138,27 +75,18 @@ url: /about
     <div class="container">
         <div class="col-xs-12 col-sm-4">
             <div class="more-info-item">
-                <h3>who we are</h3>
-                <p>
-                    Curabitur vulputate libero quis molestie imperdiet. Nulla libero nibh, scelerisque rutrum urna a, viverra cursus velit. Donec sodales elementum mattis. Integer a ligula dolor. Nam ornare purus in ante auctor, vitae sollicitudin lacus rhoncus. 
-                </p>
+                {{ content_block('about-left') }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-4">
             <div class="more-info-item">
-                <h3>what we do</h3>
-                <p>
-                    Curabitur vulputate libero quis molestie imperdiet. Nulla libero nibh, scelerisque rutrum urna a, viverra cursus velit. Donec sodales elementum mattis. Integer a ligula dolor. Nam ornare purus in ante auctor, vitae sollicitudin lacus rhoncus. 
-                </p>
+                {{ content_block('about-center') }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-4">
             <div class="more-info-item">
-                <h3>our goal and idea</h3>
-                <p>
-                    Curabitur vulputate libero quis molestie imperdiet. Nulla libero nibh, scelerisque rutrum urna a, viverra cursus velit. Donec sodales elementum mattis. Integer a ligula dolor. Nam ornare purus in ante auctor, vitae sollicitudin lacus rhoncus. 
-                </p>
+                {{ content_block('about-right') }}
             </div>
         </div>
 
