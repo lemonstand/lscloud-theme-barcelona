@@ -164,7 +164,7 @@ $(document).ready(function() {
     }
 
     if ($('.accepts-marketing').length > 0) {
-    $('.accepts-marketing').iCheck({
+        $('.accepts-marketing').iCheck({
             checkboxClass: 'accepts-marketing'
         });
     }
