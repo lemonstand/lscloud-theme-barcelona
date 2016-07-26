@@ -2979,6 +2979,34 @@ outline: none;
       border:1px solid #34a994;
     
 }
+.accepts-marketing{
+      vertical-align: middle;
+    display: inline-block;
+background-color: transparent;
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance:none;
+    appearance: none;
+    background-color: #fff;
+    border:1px solid #ddd;
+    width: 17px;
+    outline: none;
+    height: 17px;
+}
+.accepts-marketing:hover{
+cursor: pointer;
+   
+}
+.accepts-marketing:checked,.accepts-marketing.checked{
+ border:1px solid #000;
+background-color: #34a994;
+outline: none;
+}
+.accepts-marketing:checked,.accepts-marketing:focus,.accepts-marketing:hover{
+      outline: none;
+      border:1px solid #34a994;
+    
+}
 .step-btn {
     padding: 7px 23px;
     font-size: 13px;

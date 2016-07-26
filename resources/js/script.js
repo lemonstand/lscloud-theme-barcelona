@@ -163,6 +163,12 @@ $(document).ready(function() {
         });
     }
 
+    if ($('.accepts-marketing').length > 0) {
+    $('.accepts-marketing').iCheck({
+            checkboxClass: 'accepts-marketing'
+        });
+    }
+
     //Featured, Arrival Tab controller
     $('.panel-title > a').click(function(e) {
         e.preventDefault();
