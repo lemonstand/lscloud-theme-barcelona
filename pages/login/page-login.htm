@@ -33,12 +33,12 @@ url: /login
 						
 						<input name="signup[password]" id="signup[password]" type="password" class="md-input col-xs-12"  placeholder="Password *"/>
 						
-						<input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="md-input col-xs-12"  placeholder="Confirm Password *"/><br>
+						<input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="md-input col-xs-12"  placeholder="Confirm Password *" style="margin-bottom: 15px"/><br>
+
+						<input class="md-check" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
 
 						<input type="hidden" name="autologin" value="1" />
 						<input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
-						<input class="accepts-marketing" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
-          
 						<button class="md-button narrow">submit</button>
 					{{ close_form() }}
 				</div>
