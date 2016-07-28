@@ -25,19 +25,20 @@ url: /login
 					{{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : ''}) }}
 						<h3>Register</h3>
 						
-						<input name="signup[first_name]" id="signup[first_name]" type="text" class="md-input col-xs-12" placeholder="First Name" />
+						<input name="signup[first_name]" id="signup[first_name]" type="text" class="md-input col-xs-12" placeholder="First Name *" />
 
-						<input name="signup[last_name]" id="signup[last_name]" type="text" class="md-input col-xs-12"  placeholder="Last Name"/>
+						<input name="signup[last_name]" id="signup[last_name]" type="text" class="md-input col-xs-12"  placeholder="Last Name *"/>
 						
-						<input id="signup[email]" type="text" name="signup[email]" class="md-input col-xs-12"  placeholder="Email"/>
+						<input id="signup[email]" type="text" name="signup[email]" class="md-input col-xs-12"  placeholder="Email *"/>
 						
-						<input name="signup[password]" id="signup[password]" type="password" class="md-input col-xs-12"  placeholder="Password"/>
+						<input name="signup[password]" id="signup[password]" type="password" class="md-input col-xs-12"  placeholder="Password *"/>
 						
-						<input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="md-input col-xs-12"  placeholder="Confirm Password"/>
+						<input name="signup[password_confirmation]" id="signup[password_confirmation]" type="password" class="md-input col-xs-12"  placeholder="Confirm Password *" style="margin-bottom: 15px"/><br>
+
+						<input class="md-check" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
 
 						<input type="hidden" name="autologin" value="1" />
 						<input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
-          
 						<button class="md-button narrow">submit</button>
 					{{ close_form() }}
 				</div>
