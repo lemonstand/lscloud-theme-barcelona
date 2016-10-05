@@ -25,8 +25,15 @@
 			</div>
 			<div class="row field-row ">
 				<div class="col-xs-12">
-					<label for="billing_address" class="hide">Address</label>
-					<textarea id="billing_address" name="billing[street_address]" class="required md-input" placeholder="street address*">{{ billing.street_address }}</textarea>
+					<label for="billing_address" class="hide">Address Line 1</label>
+					<textarea id="billing_address" name="billing[street_address]" class="required md-input" placeholder="address line 1*">{{ billing.street_address }}</textarea>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="billing_address" class="hide">Address Line 2</label>
+					<textarea id="billing_address" name="billing[street_address_line2]" class="required md-input" placeholder="address line 2 (optional)">{{ billing.street_address_line2 }}</textarea>
 					<span class="error"></span>
 				</div>
 			</div>
@@ -112,8 +119,15 @@
 			</div>
 			<div class="row field-row ">
 				<div class="col-xs-12">
-					<label for="shipping_address" class="hide">Address</label>
-					<textarea name="shipping[street_address]" id="shipping_address" class="required md-input" placeholder="street address*">{{ shipping.street_address }}</textarea>
+					<label for="shipping_address" class="hide">Address Line 1</label>
+					<textarea name="shipping[street_address]" id="shipping_address" class="required md-input" placeholder="address line 1*">{{ shipping.street_address }}</textarea>
+					<span class="error"></span>
+				</div>
+			</div>
+			<div class="row field-row ">
+				<div class="col-xs-12">
+					<label for="shipping_address" class="hide">Address Line 2</label>
+					<textarea name="shipping[street_address_line2]" id="shipping_address" class="required md-input" placeholder="address line 2 (optional)">{{ shipping.street_address_line2 }}</textarea>
 					<span class="error"></span>
 				</div>
 			</div>
