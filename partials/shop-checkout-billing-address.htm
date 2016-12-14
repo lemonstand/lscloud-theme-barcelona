@@ -26,7 +26,13 @@
 		</div>
 		<div class="row field-row ">
 			<div class="col-xs-12">
-				<input class="required md-input" placeholder="street address*" value="{{ billingInfo.streetAddressLine1 }}" name="billingInfo[streetAddressLine1]" id="billing_address" />
+				<input class="required md-input" placeholder="address line 1*" value="{{ billingInfo.streetAddressLine1 }}" name="billingInfo[streetAddressLine1]" id="billing_address" />
+				<span class="error"></span>
+			</div>
+		</div>
+		<div class="row field-row ">
+			<div class="col-xs-12">
+				<input class="required md-input" placeholder="address line 2 (optional)" value="{{ billingInfo.streetAddressLine2 }}" name="billingInfo[streetAddressLine2]" id="billing_address" />
 				<span class="error"></span>
 			</div>
 		</div>
