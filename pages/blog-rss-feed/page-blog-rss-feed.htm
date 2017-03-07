@@ -1,0 +1,25 @@
+---
+action: 'cmscontent:feed'
+template: rss-2-0-feed
+protocol: all
+published: true
+name: 'Blog RSS feed'
+url: /blog/feed.xml
+---
+<channel>
+    <title>{{ page.title }}</title>
+    <link>{{ page.url }}</link>
+    <description><![CDATA[{{ page.description | unescape }} ]]></description>
+    <category domain="www.dmoz.com">{{ page.keywords }}</category>
+    <lastBuildDate>{{ published_on | date("r") }}</lastBuildDate>
+    <pubDate>{{ published_on | date("r") }}</pubDate>
+    <generator>LemonStand V2</generator>
+{% for post in feed %}
+  <item>
+    <title>{{ post.title }}</title>
+    <link>/blog/{{ post.guid }}</link>
+    <description><![CDATA[ {{ post.excerpt | unescape }} ]]></description>
+    <pubDate>{{ post.published_on | date("r") }}</pubDate>
+  </item>
+{% endfor %}
+</channel>
