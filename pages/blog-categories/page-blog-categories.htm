@@ -6,30 +6,27 @@ published: true
 name: Blog Categories
 url: /blog/archives/:category
 ---
-<div class="row">
-    <div class="content">
+<section class="section-products-grid" id="products-grid-sidebar">
+    <div class="container">
+      <h3>{{ category }}</h3>
 {% if archives | length > 0 %}
 {% paginate archives by 5 %}
   {% for post in pagination.items %}
-    <h2>{{ category }}</h2>
-    <article class="{{ post.type }}">
-        <header>
 
-            <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+    <article class="{{ post.type }}">
+        <!-- <header> -->
+
+            <h3><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
             <p>{{ post.published_on | date("F j, Y") }}</p>
             <p><strong>{{ post.author_name }}</strong> in <var>{{ post.type }}</var></p>
-        </header>
+        <!-- </header> -->
         <aside>{{ post.excerpt | unescape }}</aside>
     </article>
     <hr/>
   {% endfor %}
-
-  <div class="pagination-centered">
-    <div class="pagination">
-      {% navigation %}
-    </div>
+  <div class="paging-holder">
+    {% navigation %}
   </div>
-
 {% endpaginate %}
 {% else %}
   <article>
@@ -40,4 +37,4 @@ url: /blog/archives/:category
   </article>
 {% endif %}
     </div>
-</div>
+</section>
