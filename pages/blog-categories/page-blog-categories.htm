@@ -32,9 +32,9 @@ url: /blog/archives/:category
             {% paginate archives by 5 %}
             {% for post in pagination.items %}
               <div>
-                <h2><a href="{{ post.guid }}">{{ post.title }}</a></h2>
+                <h2><a href="../{{ post.guid }}">{{ post.title }}</a></h2>
                 <div>{{ post.excerpt | unescape }}</div>
-                <div><a href="{{ post.guid }}">Read More</a></div>
+                <div><a href="../{{ post.guid }}">Read More</a></div>
               </div>
               <hr/>
             {% endfor %}
