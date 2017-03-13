@@ -9,7 +9,7 @@ $(window).bind("load", function() {
     }, 1000);
 });
 
-$(window).load( function(){
+$(window).load(function() {
 
     //SinglePage slide activator
     if ($('.section-single-product-page').length > 0) {
@@ -95,11 +95,11 @@ $(document).ajaxComplete(function() {
 
 $(document).ready(function() {
 
-    if($(".chzn-select").length){ 
-      //CHOSEN SELECTS
-      $(".chzn-select").chosen({
-          width: "100%"
-      });
+    if ($(".chzn-select").length) {
+        //CHOSEN SELECTS
+        $(".chzn-select").chosen({
+            width: "100%"
+        });
     }
 
     $(window).on('onAjaxAfterUpdate', function() {
@@ -365,6 +365,43 @@ $(document).ready(function() {
         });
     }
 
+    //
+    // Star rating
+    //
+    $('.rating > span').click(function() {
+        var currentId = $(this).attr('id');
+        if (currentId === 'hate') {
+            $('#hate').addClass('select');
+            $('#dont-like, #ok, #like, #love').removeClass('select');
+            $('.rating > p').text('I hate it');
+            $("#item_rating").val('1');
+        }
+        if (currentId === 'dont-like') {
+            $('#hate, #dont-like').addClass('select');
+            $('#ok, #like, #love').removeClass('select');
+            $('.rating > p').text('I don\'t like it');
+            $("#item_rating").val('2');
+        }
+        if (currentId === 'ok') {
+            $('#hate, #dont-like, #ok').addClass('select');
+            $('#like, #love').removeClass('select');
+            $('.rating > p').text('It\'s ok');
+            $("#item_rating").val('3');
+        }
+        if (currentId === 'like') {
+            $('#hate, #dont-like, #ok, #like').addClass('select');
+            $('#love').removeClass('select');
+            $('.rating > p').text('I like it');
+            $("#item_rating").val('4');
+        }
+        if (currentId === 'love') {
+            $('#hate, #dont-like, #ok, #like, #love').addClass('select');
+            $('.rating > p').text('I love it');
+            $("#item_rating").val('5');
+        }
+
+    });
+
     //Sidebar Price Slider
     if ($('.price-slider').length > 0) {
         $('.price-slider').slider({
@@ -608,3 +645,7 @@ $(document).ready(function() {
         }
     }
 });
+
+function writeReview() {
+    $('#productWriteModal').modal('show');
+}

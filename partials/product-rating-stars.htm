@@ -1,0 +1,7 @@
+{% set product_rating = product.rating() %}
+<span style="margin-right: -4px">
+  {% for i in range(1, product_rating.average_int) %}&starf;{% endfor %}
+</span>
+{% if product_rating.average_int != 5 %}
+  {% for i in range(1, 5 - product_rating.average_int) %}&star;{% endfor %}
+{% endif %}

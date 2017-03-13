@@ -2,7 +2,7 @@
 <div class="cart-item row">
 	<div class="col-sm-2 col-lg-1">
 		<div class="image">
-			<img width="60" height="60" alt="" src="{{ item.product.images.first.thumbnail(60, 60) }}" /> 
+			<img width="60" height="60" alt="" src="{{ item.product.images.first.thumbnail(60, 60) }}" />
 		</div>
 	</div>
 	<div class="col-sm-4 col-lg-6">
@@ -11,11 +11,30 @@
 		<div class="title">
 			<a href="/product/{{ item.product.url_name }}">{{ item.product.name }}</a>
 			<ul class="options">
-                {% set description = item.optionsString() %}
-                {% if description %}
-                    <li>{{ description|unescape }}</li>
-                {% endif %}
-            </ul>
+        {% set description = item.optionsString() %}
+        {% if description %}
+          <li>{{ description|unescape }}</li>
+        {% endif %}
+      </ul>
+		</div>
+		<div class="bulk-pricing">
+			{% if item.product.priceTiers.count %}
+				<p class="bold">Bulk Pricing</p>
+				<div class="widget shopping-cart-summary">
+					<table class="volume-pricing-table">
+						<thead><tr><td>Qty</td><td>Price</td></tr></thead>
+						{% for priceTier in item.product.priceTiers %}
+						<tr>
+							<td>
+								{% if loop.last %} {{priceTier.quantity}}+
+								{% else %} {{ priceTier.quantity}} - {{item.product.priceTiers[loop.index].quantity - 1}} {% endif %}
+							</td>
+							<td>{{priceTier.price|currency}}/each</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			{% endif %}
 		</div>
 	</div>
 	<div class="col-sm-6 col-lg-5 details {{ edit_cart ? null : 'no-edit' }}">
@@ -33,8 +52,8 @@
 			{{ item.total()|currency }}
 		</div>
 		{%if edit_cart %}
-			<a class="close-btn" href="#close" 
-			data-ajax-handler="shop:cart" 
+			<a class="close-btn" href="#close"
+			data-ajax-handler="shop:cart"
 			data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart"
 			data-ajax-extra-fields="delete_item='{{ item.key }}'"></a>
 		{% endif %}

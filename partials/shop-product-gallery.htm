@@ -6,7 +6,7 @@
 				<a class="fa fa-angle-up up-btn" href="#up"></a>
 				<a class="fa fa-angle-down down-btn" href="#down"></a>
 				<ul>
-					{% for image in product.images %}					
+					{% for image in product.images %}
 					<li>
 						<a class="vertical-gallery-item" href="#slide{{loop.index}}">
 							<img class="lazy" alt="{{ image.title }}" src="{{ image.thumbnail(113, 'auto') }}" />
@@ -20,13 +20,13 @@
 			<div class="single-product-gallery">
 				<div class="nav-holder">
 					<a class="fa fa-angle-right next-btn" href="#next"></a>
-					<a class="fa fa-angle-left prev-btn" href="#prev"></a>    
+					<a class="fa fa-angle-left prev-btn" href="#prev"></a>
 				</div>
 				<div class="single-product-slider"">
 					{% for image in product.images %}
 					<div class="single-product-gallery-item" id="slide{{loop.index}}">
 						<a data-rel="prettyphoto" href="{{ image.thumbnail(746, 'auto') }}">
-							<img alt="{{ image.title }}" src="{{ image.thumbnail(512, 'auto') }}" />
+							<img alt="{{ image.title }}" src="{{ image.thumbnail(512, 'auto') }}" class="img-responsive" />
 						</a>
 					</div>
 					{% endfor %}
@@ -35,7 +35,7 @@
 		</div>
 	{% else %}
 		<div class="col-xs-12">
-			<img temprop="image"  class="lazy product-img" alt="{{ product.image.first.title }}" src="{{ product.images.first.thumbnail(610, 'auto') }}" />
+			<img temprop="image"  class="lazy product-img" alt="{{ product.image.first.title }}" src="{{ product.images.first.thumbnail(610, 'auto')|default('http://placehold.it/460x300') }}" />
 		</div>
 	{% endif %}
 	</div>
