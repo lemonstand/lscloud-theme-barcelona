@@ -9,7 +9,7 @@
 		{% if theme.ratingToggle %}
 	    <div class="product-rating-container">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6">
+					<div class="col-xs-12 col-sm-12">
 						<!-- product ratings -->
 		        {% set product_rating = product.rating() %}
 		        <p style="display: inline;">
@@ -20,21 +20,20 @@
 		        		&star;&star;&star;&star;&star;
 		         		(no reviews yet)
 		        	{% endif %}
+							{% if product_rating.total_reviews %}
+								{{ partial('shop-product-review-view') }}
+			          <!-- View Review -->
+			          <a id="view-review" href="#" data-toggle="modal" data-target="#productReviewModal">View Review(s)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+
+			          <!-- Write Review -->
+			          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
+			        {% else %}
+			          <!-- Write Review -->
+			          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
+			        {% endif %}
 		        </p>
 					</div>
-					<div class="col-xs-12 col-sm-6 product-review-controls">
-						{% if product_rating.total_reviews %}
-							{{ partial('shop-product-review-view') }}
-		          <!-- View Review -->
-		          <a id="view-review" href="#" data-toggle="modal" data-target="#productReviewModal">View Review(s)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-
-		          <!-- Write Review -->
-		          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
-		        {% else %}
-		          <!-- Write Review -->
-		          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
-		        {% endif %}
-					</div>
+					
 				</div>
 
 
