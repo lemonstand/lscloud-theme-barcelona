@@ -10,6 +10,7 @@ description: 'blog template'
 <section class="section-products-grid" id="products-grid-sidebar">
   <div class="container">
     <div class="row">
+      
       {% if archives | length > 0 or publishedPosts > 0 %}
         {% paginate archives by 5 %}
           {% set publishedPosts = 0 %}
@@ -22,7 +23,7 @@ description: 'blog template'
             </div>
           </div>
           <div class="col-xs-12 col-md-9">
-            {% for post in archives %}
+            {% for post in cmsContent('blog') %}
               {% if post.status == "published" %}
                 {% set publishedPosts = publishedPosts + 1 %}
               {% endif %}
