@@ -16,7 +16,8 @@
     .single-product-gallery {
         min-width: 510px;
     }
-
+    .published-date {line-height:3.9em; text-align: right;}
+    .product-review-controls {text-align: right;}
 }
 
 
@@ -109,6 +110,9 @@ margin: 21px 0 0 0px;
     .top-menu > ul > li > a {
         padding: 24px 15px;
     }
+
+    .published-date {line-height:3.9em; text-align: right;}
+    .product-review-controls {text-align: right;}
 }
 @media all and (max-width: 769px){  /*col-sm-*/
 
@@ -122,7 +126,7 @@ width: 100%;
 
 top: -85px;
     }
-.section-shopping-cart-page .cart-item 
+.section-shopping-cart-page .cart-item
 
 {
 text-align: center;
@@ -139,7 +143,7 @@ text-align: center;
     }
 
     .single-product-info-holder .social-buttons li{
-        margin-bottom:5px; 
+        margin-bottom:5px;
     }
     .section-contact-form-holder .content-holder.about-us{
         margin: 20px 0;
@@ -177,22 +181,22 @@ text-align: center;
         height: 90px;
 
     }
-    
+
     .top-logo {
         margin-top: 0px !important;
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
-    
+
     .ic-sm-phone:before, .ic-sm-user:before{
         background:none !important;
         width:auto !important;
     }
-    
+
     .hotline-holder{
         text-align:center;
     }
-    
+
     .login-menu-holder{
         text-align:center;
     }
@@ -248,7 +252,7 @@ text-align: center;
         margin: 0;
     }
     .newsletter-title h2,.newsletter-title h3{
-        text-align: center;   
+        text-align: center;
     }
     .newsletter-title{
         margin-bottom: 20px;
@@ -268,8 +272,10 @@ text-align: center;
         margin: 0 0 20px 0;
     }
     .newsletter-body {
-margin: 0px;
-}
+      margin: 0px;
+    }
+    .published-date {line-height:3.9em; text-align: right;}
+    .product-review-controls {text-align: right;}
 }
 
 
@@ -296,7 +302,8 @@ margin: 0px;
         top: 6px;
 
     }
-
+    .published-date {line-height:3.9em; text-align: right;}
+    .product-review-controls {text-align: right;}
 }
 
 
@@ -304,6 +311,8 @@ margin: 0px;
 	.field-row label.hide {
 		display: block !important;
 	}
+  .published-date {line-height:3.9em; text-align: right;}
+  .product-review-controls {text-align: right;}
 }
 
 
@@ -328,7 +337,7 @@ margin: 0px;
         width: 100%;
         margin-left: 0;
         text-align: center;
-        min-height: 160px; 
+        min-height: 160px;
     }
     .homepage2 .wishlist-holder,.top-cart-holder{
         float: none;
@@ -337,22 +346,25 @@ margin: 0px;
         margin: 17px 0px 20px 0;
         width: 100%;
     }
-    
+
     .top-logo {
      margin-left:-20px;
      margin-top: -27px;
      }
-
+     .published-date {line-height:3.9em; text-align: right;}
+     .product-review-controls {text-align: right;}
 }
 
 @media all and (max-width: 580px){
     .single-product-gallery{
         overflow: hidden;
-        height: 510px;
+        /*height: 510px;*/
     }
     .single-product-gallery img{
-    width: 400px;
-}
+      width: 400px;
+    }
+
+    .published-date, .product-review-controls {text-align: left;}
 }
 
 @media all and (max-width: 450px){
@@ -364,14 +376,14 @@ margin: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
     }
-    
+
     #checkout-progress{
     display:none;
     }
-    
+
     .single-product-gallery{
         overflow: hidden;
-        height: 390px;
+        /*height: 390px;*/
     }
     .single-product-gallery img{
     width: 300px;
@@ -397,7 +409,7 @@ margin: 0px;
     }
     .style-2 .top-cart-holder:hover .hover-holder{
 height: 192px;
-    
+
 }
 .style-2 .top-cart-holder .hover-holder .bottom-holder a{
     width: 100%;
@@ -445,7 +457,7 @@ height: 192px;
 
     }
     .checkout-accordions .field-row .button-holder{
-        text-align: center;   
+        text-align: center;
         width: 100%;
     }
     .hire-body {
@@ -490,6 +502,8 @@ text-align: center;
 
         min-height:400px;
     }
+
+    .published-date, .product-review-controls {text-align: left;}
 }
 
 @-webkit-keyframes height-product-nomargin /* Safari and Chrome */
@@ -566,6 +580,6 @@ width: 100%;
 
 
 @media all and (max-width:320px){
- 
 
+  .published-date, .product-review-controls {text-align: left;}
 }

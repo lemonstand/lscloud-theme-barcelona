@@ -9,7 +9,7 @@ $(window).bind("load", function() {
     }, 1000);
 });
 
-$(window).load( function(){ 
+$(window).load(function() {
 
     //SinglePage slide activator
     if ($('.section-single-product-page').length > 0) {
@@ -73,7 +73,7 @@ $(window).load( function(){
         }
     }
 
-}); 
+});
 
 
 $(document).ajaxComplete(function() {
@@ -94,10 +94,14 @@ $(document).ajaxComplete(function() {
 });
 
 $(document).ready(function() {
-    //CHOSEN SELECTS
-    $(".chzn-select").chosen({
-        width: "100%"
-    });
+
+    if ($(".chzn-select").length) {
+        //CHOSEN SELECTS
+        $(".chzn-select").chosen({
+            width: "100%"
+        });
+    }
+
     $(window).on('onAjaxAfterUpdate', function() {
         $(".chzn-select").trigger("chosen:updated");
         $(".chzn-select").chosen({
@@ -135,8 +139,8 @@ $(document).ready(function() {
 
     //Checkout Shipping Methods - update cart
     $('#checkout-page').on('change', '#shipping-methods input', function() {
-        // When the shipping method is shipping we want to update the 
-        // order totals area on the Checkout page. The native Checkout 
+        // When the shipping method is shipping we want to update the
+        // order totals area on the Checkout page. The native Checkout
         // action does all the calculations.
         //
         $(this).sendRequest('shop:checkout', {
@@ -341,7 +345,7 @@ $(document).ready(function() {
     }
 
 
-    
+
     // Color Options background color setters (radio buttons)
     if ($('.color-option').length > 0) {
         $('.color-option').each(function() {
@@ -349,7 +353,7 @@ $(document).ready(function() {
             $(this).css('background-color', color);
         });
     }
-  
+
     //Rating Star activator
     if ($('.star').length > 0) {
         $('.star').raty({
@@ -360,7 +364,44 @@ $(document).ready(function() {
             }
         });
     }
-   
+
+    //
+    // Star rating
+    //
+    $('.rating > span').click(function() {
+        var currentId = $(this).attr('id');
+        if (currentId === 'hate') {
+            $('#hate').addClass('select');
+            $('#dont-like, #ok, #like, #love').removeClass('select');
+            $('.rating > p').text('I hate it');
+            $("#item_rating").val('1');
+        }
+        if (currentId === 'dont-like') {
+            $('#hate, #dont-like').addClass('select');
+            $('#ok, #like, #love').removeClass('select');
+            $('.rating > p').text('I don\'t like it');
+            $("#item_rating").val('2');
+        }
+        if (currentId === 'ok') {
+            $('#hate, #dont-like, #ok').addClass('select');
+            $('#like, #love').removeClass('select');
+            $('.rating > p').text('It\'s ok');
+            $("#item_rating").val('3');
+        }
+        if (currentId === 'like') {
+            $('#hate, #dont-like, #ok, #like').addClass('select');
+            $('#love').removeClass('select');
+            $('.rating > p').text('I like it');
+            $("#item_rating").val('4');
+        }
+        if (currentId === 'love') {
+            $('#hate, #dont-like, #ok, #like, #love').addClass('select');
+            $('.rating > p').text('I love it');
+            $("#item_rating").val('5');
+        }
+
+    });
+
     //Sidebar Price Slider
     if ($('.price-slider').length > 0) {
         $('.price-slider').slider({
@@ -371,7 +412,7 @@ $(document).ready(function() {
             handle: "square"
         });
     }
-   
+
     //Pagination Helpers
     $('.paging-holder li a').each(function() {
         var $el = $(this);
@@ -379,7 +420,7 @@ $(document).ready(function() {
             $el.addClass('prev-next-page');
         }
     });
-    
+
     //list / grid local storage
     $('.grid-list-buttons li a').on('click', function() {
         if ($(this).attr('href') == '#list-view') {
@@ -391,7 +432,7 @@ $(document).ready(function() {
     if (localStorage.shopView == 'list') {
         $('.grid-list-buttons li, .product-grid .tab-pane').toggleClass('active');
     }
-    
+
     //Sidebar widget activator
     if ($('.accordion-widget').length > 0) {
         $('.category-accordions .accordion-body').parent().find('.accordion-toggle').toggleClass('collapsed');
@@ -399,7 +440,7 @@ $(document).ready(function() {
         $('.accordion-body').on('hidden', function() {});
         $('.accordion-body').on('shown', function() {});
     }
-    
+
     //Product mini gallery
     if ($(".product-mini-gallery").length > 0) {
         allminigalleries = $(".product-mini-gallery img").length;
@@ -424,7 +465,7 @@ $(document).ready(function() {
         event.preventDefault();
         $(this).parent().find('.product-mini-gallery').trigger("next", 1);
     });
-    
+
     //Grid/list buttons switchers on product sidebar page
     if ($('.grid-list-buttons').length > 0) {
         setTimeout(checkMiniGalleries, 200);
@@ -433,7 +474,7 @@ $(document).ready(function() {
         e.preventDefault();
         setTimeout(checkMiniGalleries, 200);
     });
-    
+
     //Brand Slider activator
     if ($(".brands-slider").length > 0) {
         $(".brands-slider img").lazyload({
@@ -464,7 +505,7 @@ $(document).ready(function() {
             $(this).parent().find('.brands-slider').trigger("prev", 1);
         });
     }
-    
+
     //Image lazy activator
     if ($("img.lazy").length > 0) {
         allImgs = $("img.lazy").length;
@@ -478,14 +519,14 @@ $(document).ready(function() {
             }
         });
     }
-    
+
     //    Footer products image lazy activator
     if ($(".footer-products").length > 0) {
         $(".footer-products img").lazyload({
             effect: "fadeIn"
         });
     }
-    
+
     //    Tabs controller
     $('.active-tab').click(function(event) {
         event.preventDefault();
@@ -569,7 +610,7 @@ $(document).ready(function() {
             });
         }
     }
-    
+
     //    Top page cart close button
     $('.top-cart-holder .hover-holder .remove-item').click(function(event) {
         event.preventDefault();
@@ -577,7 +618,7 @@ $(document).ready(function() {
             $(this).remove();
         });
     });
-    
+
     //Contact form setup
     checkContactForm();
 
@@ -585,7 +626,7 @@ $(document).ready(function() {
         if ($(".contact-form").length > 0) {
             //  triggers contact form validation
             var formStatus = $(".contact-form").validate();
-            //   ===================================================== 
+            //   =====================================================
             //sending contact form
             $(".contact-form").submit(function(e) {
                 e.preventDefault();
@@ -604,3 +645,7 @@ $(document).ready(function() {
         }
     }
 });
+
+function writeReview() {
+    $('#productWriteModal').modal('show');
+}

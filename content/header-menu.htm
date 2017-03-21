@@ -1,0 +1,59 @@
+---
+name: header-menu
+content_type: html
+---
+<!--  non mobile menu -->
+<div class="top-menu visible-md visible-lg">
+    <ul>
+        <li class="{{ active_page == 'home' ? 'active' : null }}"><a href="{{ site_url('/') }}">Home</a></li>
+        <li class="{% if categories.count %}dropdown{% endif %} {{ active_page == 'shop' ? 'active' : null }}">
+            {# add data-toggle="dropdown" to <a> below to make the link return false #}
+            <a class="dropdown-toggle" id="dropdownMenu1" href="{{ site_url('shop') }}">shop</a>
+			{% if categories.count %}
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            	{% tree categories %}
+					{% for category in tree.items %}
+						<li role="presentation">
+							<a role="menuitem" tabindex="-1" href="/category/{{ category.fullUrlName }}">{{ category.name }}</a>
+						</li>
+                    {% endfor %}
+                {% endtree %}
+            </ul>
+            {% endif %}
+        </li>
+        {% if customer %}
+			<li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li>
+			<li class="{{ active_page == 'profile' ? 'active' : null }}"><a href="{{ site_url('profile') }}">My Profile</a></li>
+		{% endif %}
+        <li class="{{ active_page == 'about' ? 'active' : null }}"><a href="{{ site_url('about') }}">About</a></li>
+        <li class="{{ active_page == 'archives' ? 'active' : null }}"><a href="{{ site_url('archives/blog') }}">Blog</a></li>
+		<li class="{{ active_page == 'contact' ? 'active' : null }}"><a href="{{ site_url('contact') }}">Contact</a></li>
+    </ul>
+</div>
+
+<!--  mobile only menu -->
+<select class="top-drop-menu  visible-sm visible-xs">
+    <option value="{{ site_url('/') }}">
+        Home
+    </option>
+    <option value="{{ site_url('shop') }}">
+        Shop
+    </option>
+    {% if customer %}
+        <option value="{{ site_url('orders') }}">
+            My Orders
+        </option>
+        <option value="{{ site_url('profile') }}">
+            My Profile
+        </option>
+    {% endif %}
+    <option value="{{ site_url('about') }}">
+        About
+    </option>
+    <option value="{{ site_url('blog') }}">
+        Blog
+    </option>
+    <option value="{{ site_url('contact') }}">
+        Contact
+    </option>
+</select>

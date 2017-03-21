@@ -1,0 +1,15 @@
+{% set blogCategories = [] %}
+<div class="accordion">
+  {% for post in cmsContent('blog')|extended_sort('published_on', false) %}
+    {% for category in post.categories %}
+        {% if category.name not in blogCategories %}
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a href="/archives/blog/{{ category.slug }}" class="accordion-toggle direct-link">{{ category.name }}</a>
+            </div>
+          </div>
+          {% set blogCategories = blogCategories|merge([category.name]) %}
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>

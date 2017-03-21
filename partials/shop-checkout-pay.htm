@@ -32,7 +32,7 @@
 <div id="collapse2" class="panel-collapse collapse in">
 	<div class="panel-body step-4">
 		{% if cart %}
-		
+
 		      {% if order.payment_processed %}
 		        <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
 		      {% else %}
@@ -40,9 +40,9 @@
 		            <div class="row">
 			            <div class="col-xs-12 col-md-6">
 				            <h4><label for="payment_method">Payment method</label></h4>
-				            <!-- 
+				            <!--
 				              The payment form below (id="payment_form") automatically updates when
-				              the payment method is changed. See app.js for the implementation details. 
+				              the payment method is changed. See app.js for the implementation details.
 				            -->
 				            {{ open_form({'class': 'custom'}) }}
 				              <select name="paymentMethodId" id="payment_method" class="md-select col-xs-12">
@@ -56,12 +56,12 @@
 		            </div>
 
 		          <div id="payment_form">{{ partial('shop-paymentform') }}</div>
-		          
+
 		      {% endif %}
-		  
+
 		{% else %}
 		  <p class="flash error">Order not found.</p>
 		{% endif %}
-		
+
 	</div>
 </div>

@@ -1,0 +1,13 @@
+<table class="volume-pricing-table">
+  <thead><tr><td>Qty</td><td>Price</td></tr></thead>
+  {{ item }}
+  {% for priceTier in product.priceTiers %}
+  <tr>
+    <td>
+      {% if loop.last %} {{priceTier.quantity}}+
+      {% else %} {{ priceTier.quantity}} - {{product.priceTiers[loop.index].quantity - 1}} {% endif %}
+    </td>
+    <td>{{priceTier.price|currency}}/each</td>
+  </tr>
+  {% endfor %}
+</table>

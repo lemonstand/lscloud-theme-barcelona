@@ -1,0 +1,26 @@
+---
+action: 'cmscontent:page'
+template: inner
+protocol: all
+published: true
+name: 'Basic Page Template'
+url: '/page/:slug'
+---
+<section class="section-home-banner">
+    <div class="container">
+      <img src="{{ featured_image.thumbnail(200, 'auto')|default('http://placehold.it/1000x365') }}" alt="{{ featured_image.alt }}" class="lazy"/>
+    </div>
+</section>
+<section class="section-basic-page-grid">
+	<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <h1>{{ post.title }}</h1>
+      </div>
+      <div class ="col-xs-12 col-sm-12">
+        <div class="basic-page-excerpt" style="font-weight: bold; margin-bottom: 20px">{{ post.excerpt | unescape }}</div>
+        <div class="basic-page-body">{{ post.body | unescape }}</div>
+      </div>
+    </div>
+  </div>
+</section>
