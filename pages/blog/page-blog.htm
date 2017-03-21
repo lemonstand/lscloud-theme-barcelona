@@ -4,13 +4,13 @@ template: inner
 protocol: all
 published: true
 name: Blog
-url: /blog
+url: /:type/archives
 description: 'blog template'
 ---
 <section class="section-products-grid" id="products-grid-sidebar">
   <div class="container">
     <div class="row">
-      
+
       {% if archives | length > 0 or publishedPosts > 0 %}
         {% paginate archives by 5 %}
           {% set publishedPosts = 0 %}
