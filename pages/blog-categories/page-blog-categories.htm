@@ -4,7 +4,7 @@ template: inner
 protocol: all
 published: true
 name: Blog Categories
-url: /:type/archives/:category
+url: /archives/:type/:category
 ---
 
 <section class="section-products-grid" id="products-grid-sidebar">
@@ -32,9 +32,9 @@ url: /:type/archives/:category
             {% paginate archives by 5 %}
             {% for post in pagination.items %}
               <div>
-                <h2><a href="../{{ post.guid }}">{{ post.title }}</a></h2>
+                <h2><a href="/blog/{{ post.guid }}">{{ post.title }}</a></h2>
                 <div>{{ post.excerpt | unescape }}</div>
-                <div><a href="../{{ post.guid }}">Read More</a></div>
+                <div><a href="/blog/{{ post.guid }}">Read More</a></div>
               </div>
               <hr/>
             {% endfor %}

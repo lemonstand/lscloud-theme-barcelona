@@ -5,7 +5,7 @@
         {% if category.name not in blogCategories %}
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a href="/blog/archives/{{ category.slug }}" class="accordion-toggle direct-link">{{ category.name }}</a>
+              <a href="/archives/blog/{{ category.slug }}" class="accordion-toggle direct-link">{{ category.name }}</a>
             </div>
           </div>
           {% set blogCategories = blogCategories|merge([category.name]) %}
