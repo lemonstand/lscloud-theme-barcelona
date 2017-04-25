@@ -33,7 +33,7 @@
 			        {% endif %}
 		        </p>
 					</div>
-					
+
 				</div>
 
 
@@ -56,13 +56,12 @@
 			</div>
 		{% endif %}
 
-		{{ partial('shop-product-attributes') }}
-
 		{% if product.enabled %}
 			<div class="drop-down-holder">
 				{{ partial('shop-product-options') }}
 				{{ partial('shop-product-extras') }}
-				<div class="quantitiy inline">
+
+				<div class="quantity inline">
 					<h5>Quantity</h5>
 					<input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
 				</div>
@@ -120,5 +119,6 @@
 				</ul>
 			</div>
 		{% endif %}
+
 	</div>
 </div>

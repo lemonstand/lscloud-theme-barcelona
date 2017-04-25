@@ -12,16 +12,16 @@ url: /
 
 <section id="homepage-products-tab" class="section-products-grid">
     <div class="container">
-
+        
         {# Nav tabs #}
         <div class="tab-nav-holder">
-            <ul class="nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                    <a href="#featured" class="active-tab tab-control" aria-controls="featured" role="tab" data-toggle="featured">featured</a>
+            <ul class="nav-tabs">
+                <li class="active">
+                    <a class="active-tab tab-control" href="#featured" data-toggle="featured">featured</a>
                 </li>
 
-                <li role="presentation">
-                    <a href="#whats-new" class="active-tab tab-control" aria-controls="whats-new" role="tab" data-toggle="whats-new">what's new</a>
+                <li>
+                    <a class="active-tab tab-control" href="#whats-new" data-toggle="whats-new">what's new</a>
                 </li>
             </ul>
         </div>
@@ -29,24 +29,24 @@ url: /
         <div class="tab-tag-line uppercase bold">
             we have over 2000 products in our shop
         </div>
-
+        
         {{ flash() }}
 
         {# Tab panes #}
         <div class="tab-content product-grid no-move-down">
-            <div role="tabpanel" class="tab-pane active" id="featured">
+            <div class="tab-pane active" id="featured">
                 <div class="row">
                     {{ partial('home-featured-products', {'featuredCollection': 'featured'|collection}) }}
                 </div>
             </div>{# /featured #}
 
-            <div role="tabpanel" class="tab-pane" id="whats-new">
+            <div class="tab-pane" id="whats-new">
                 <div class="row">
                     {{ partial('home-featured-products', {'featuredCollection': 'new'|collection}) }}
                 </div>
             </div>{# /whats-new #}
         </div>{# /tab-content #}
-
+        
     </div>
 </section>
 

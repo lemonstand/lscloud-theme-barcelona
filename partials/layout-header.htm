@@ -1,5 +1,5 @@
 {% set active_page = globals.active_page|default('home') %}
-        
+
 <header>
     <div class=" container">
         <section class="style-one-header top-area">
@@ -21,7 +21,7 @@
                 <div class="top-logo-holder col-sm-4 col-xs-12">
 
                     <div class="top-logo">
-                        <a href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto','auto') }}" alt=""/></a>
+                      <a href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto', 'auto') }}" alt="" class="logo"></a>
                     </div>
 
                 </div>
@@ -41,6 +41,6 @@
         </section>
 
         {{ partial('layout-navigation') }}
-        
+
     </div>
 </header> {# /Page Header #}
