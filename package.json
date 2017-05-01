@@ -1,0 +1,29 @@
+{
+  "name": "barcelona",
+  "version": "1.0.0",
+  "description": "Barcelona is a responsive theme with an emphasis on images. Large hero images and product images are the highlights of this theme. Use them to create visually stunning category pages that show off your products.",
+  "main": "index.js",
+  "lemonstand" : {
+    "code":"barcelona",
+    "type": "theme",
+    "options": "options.json",
+    "demo" : "https//barcelona.lemonstand.com",
+    "screenshot" : {
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-barcelona/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-barcelona/master/resources/screenshots/large-square.png"
+    }
+  },  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemonstand/lscloud-theme-barcelona.git"
+  },
+  "author": "Bruce Alderson <bruce@lemonstand.com> (http://lemonstand.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lemonstand/lscloud-theme-barcelona/issues"
+  },
+  "homepage": "https://github.com/lemonstand/lscloud-theme-barcelona#readme"
+}
