@@ -16,7 +16,7 @@ http://creativecommons.org/licenses/by-nd/4.0/
 Barcelona – is a clean, fashion and modern HTML/CSS Template for your LemonStand cloud store! User friendly and simple for customers.
 
 
-##Template features and options
+## Template features and options
 
 * Responsive
 
