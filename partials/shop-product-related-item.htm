@@ -1,0 +1,28 @@
+{% set is_on_sale = product.onSale %} {% set page_url = '/product/' ~ product.url_name %}
+
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 {{ is_on_sale ? 'sale' : null }}">
+  {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+    <div class="product-item text-center">
+      <a href="{{ page_url }}">
+        <img class="product-img" src="{{ product.images.first.thumbnail(212, 281) }}" alt="{{ product.name }}" />
+      </a>
+      <hr>
+      <div class="title uppercase bold">
+          <a href="{{ page_url }}">{{ product.name }}</a>
+      </div>
+      <div class="price">
+        {% if is_on_sale %}
+          <span class="previous-price">{{ product.fullPrice|currency }}</span>
+        {% endif %}
+        {% if product.type == 'upsell' and product.discount %}
+          <span style="text-decoration: line-through;">
+            {{ product.product_relation.base_price|currency }}
+          </span> <br /> {{ (product.product_relation.base_price - product.discount)|currency }}
+        {% else %}
+          {{ product.product_relation.base_price|currency }}
+        {% endif %}
+      </div>
+      {% if is_on_sale %}<span class="salesign">SALE</span>{% endif %}
+    </div>
+  {{ close_form() }}
+</div>

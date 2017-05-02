@@ -1,22 +1,28 @@
 ---
-name: 'Barcelona'
+name: Barcelona
 description: 'Barcelona - Responsive Theme'
 author: 'LemonStand eCommerce Inc.'
 website: 'http://lemonstand.com/'
 engine: twig
 404: '404'
 customFields:
-  logoImage: { type: image, title: 'Global: Logo Image', default: '@/images/barcelona-logo.png'}
-  faviconImage: {type:image, title:'Favicon Image (Image you see on the chrome)', default:'@/images/ic-heart-hover.png'}
-  baseColor: { type:color, title:'Global: Base Color', default: 'rgb(52, 169, 148)'}
-  hoverColor: { type:color, title:'Global: Button Hover Color', default: '#2d8e7d'}
-  homepageImageBannerA: { type:image, title:'Home: Banner Image 1', default: '@/images/banner-freeshipping.jpg'}
-  homepageImageBannerB: { type:image, title:'Home: Banner Image 2', default: '@/images/banner-design-onsale.jpg'}
-  aboutImageBanner: {type:image, title:'About: Banner Image', default: '@/images/banner-about-us.jpg'}
-  shopImageBanner: {type:image, title:'Shop: Banner Image', default: '@/images/pgrid-banner-img.jpg'}
-  socialFacebookUrl: { type: text, title: 'Global: Facebook URL', default: 'http://facebook.com/lemonstand' }
-  socialTwitterUrl: { type: text, title: 'Global: Twitter URL', default: 'http://twitter.com/' }
-  socialPinterestUrl: { type: text, title: 'Global: Pinterest URL', default: 'http://www.pinterest.com/' }
-  ratingToggle: { type: checkbox, title: 'Product Ratings', default: 'checked', comment: 'Activate product ratings for this theme.'}
-  socialToggle: { type: checkbox, title: 'Social Links', default: 'checked', comment: 'Activate social media links.'}
+    logoImage: { type: image, title: 'Global: Logo Image', default: '@images/barcelona-logo.png', comment: 'Upload your logo! Recommended height of 65px.' }
+    faviconImage: { type: image, title: 'Favicon Image (Image you see on the chrome)', default: '@/images/ic-heart-hover.png' }
+    baseColor: { type: color, title: 'Global: Base Color', default: 'rgb(52, 169, 148)' }
+    hoverColor: { type: color, title: 'Global: Button Hover Color', default: '#2d8e7d' }
+    globalLinkColor: { type: color, title: 'Global Link Color', default: 'rgb(52, 169, 148)', comment: 'Color used for links throughout the website, including product names.' }
+    globalLinkHoverColor: { type: color, title: 'Global Link Hover Color', default: '#2d8e7d', comment: 'Color used for links throughout the website when you hover your mouse cursor over.' }
+    buttonColor: { type: color, title: 'Button Color', default: '#DC3E2F', comment: 'Color used for Add To Cart and Checkout buttons.' }
+    buttonHoverColor: { type: color, title: 'Button Hover Color', default: '#b92c1f', comment: 'Button color when you hover your mouse cursor over.' }
+    buttonBorderColor: { type: color, title: 'Button Border Color', default: '#DC3E2F', comment: 'Border color for buttons.' }
+    homepageImageBannerA: { type: image, title: 'Home: Banner Image 1', default: '@/images/banner-freeshipping.jpg' }
+    homepageImageBannerB: { type: image, title: 'Home: Banner Image 2', default: '@/images/banner-design-onsale.jpg' }
+    aboutImageBanner: { type: image, title: 'About: Banner Image', default: '@/images/banner-about-us.jpg' }
+    shopImageBanner: { type: image, title: 'Shop: Banner Image', default: '@/images/pgrid-banner-img.jpg' }
+    socialFacebookUrl: { type: text, title: 'Global: Facebook URL', default: 'http://facebook.com/lemonstand' }
+    socialTwitterUrl: { type: text, title: 'Global: Twitter URL', default: 'http://twitter.com/' }
+    socialPinterestUrl: { type: text, title: 'Global: Pinterest URL', default: 'http://www.pinterest.com/' }
+    ratingToggle: { type: checkbox, title: 'Product Ratings', default: 'checked', comment: 'Activate product ratings for this theme.'}
+    socialToggle: { type: checkbox, title: 'Social Links', default: 'checked', comment: 'Activate social media links.'}
+    crossSellToggle: { type: checkbox, title: 'Show Cross Sell/Upsell Items', default: 'checked', comment: 'Show or hide product cross sell and upsell items if a product has cross sell or upsell items.'}
 ---

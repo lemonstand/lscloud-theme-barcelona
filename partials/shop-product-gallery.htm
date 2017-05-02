@@ -22,11 +22,11 @@
 					<a class="fa fa-angle-right next-btn" href="#next"></a>
 					<a class="fa fa-angle-left prev-btn" href="#prev"></a>
 				</div>
-				<div class="single-product-slider"">
+				<div class="single-product-slider">
 					{% for image in product.images %}
 					<div class="single-product-gallery-item" id="slide{{loop.index}}">
 						<a data-rel="prettyphoto" href="{{ image.thumbnail(746, 'auto') }}">
-							<img alt="{{ image.title }}" src="{{ image.thumbnail(512, 'auto') }}" class="img-responsive" />
+							<img alt="{{ image.title }}" src="{{ image.thumbnail(512, 'auto') }}" />
 						</a>
 					</div>
 					{% endfor %}
@@ -35,8 +35,21 @@
 		</div>
 	{% else %}
 		<div class="col-xs-12">
-			<img temprop="image"  class="lazy product-img" alt="{{ product.image.first.title }}" src="{{ product.images.first.thumbnail(610, 'auto')|default('http://placehold.it/460x300') }}" />
+			<img temprop="image"  class="lazy product-img" alt="{{ product.image.first.title }}" src="{{ product.images.first.thumbnail(610, 'auto') }}" />
 		</div>
 	{% endif %}
 	</div>
+
+	{% if product.upsells.isEmpty() == false and theme.crossSellToggle == true %}
+		<hr>
+		<h3>Related items</h3>
+		<div class="row"><br>
+			{% for product in product.crosssells %}
+					{{ partial('shop-product-related-item', {'product':product}) }}
+			{% endfor %}
+			{% for product in product.upsells %}
+					{{ partial('shop-product-related-item', {'product':product}) }}
+			{% endfor %}
+		</div>
+	{% endif %}
 </div>

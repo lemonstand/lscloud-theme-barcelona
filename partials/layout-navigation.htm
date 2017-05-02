@@ -1,1 +1,38 @@
-{{ widget_block("header-menu") }}
+<div class="top-menu visible-md visible-lg">
+    {{ widget_block("header-menu") }}
+    <ul>
+      {% if customer %}
+			   <li class="{{ active_page == 'orders' ? 'active' : null }}">
+           <a href="{{ site_url('orders') }}">My Orders</a>
+         </li>
+			   <li class="{{ active_page == 'profile' ? 'active' : null }}">
+           <a href="{{ site_url('profile') }}">My Profile</a>
+         </li>
+      {% endif %}
+    </ul>
+</div>
+
+
+<select class="top-drop-menu  visible-sm visible-xs">
+    <option value="{{ site_url('/') }}">
+        Home
+    </option>
+    <option value="{{ site_url('shop') }}">
+        Shop
+    </option>
+    {% if customer %}
+        <option value="{{ site_url('orders') }}">
+            My Orders
+        </option>
+        <option value="{{ site_url('profile') }}">
+            My Profile
+        </option>
+    {% endif %}
+    <option value="{{ site_url('about') }}">
+        About
+    </option>
+    <option value="{{ site_url('contact') }}">
+        Contact
+    </option>
+    {{ widget_block("header-mobile-menu") }}
+</select>
