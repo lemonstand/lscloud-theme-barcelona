@@ -2,7 +2,7 @@
   "name": "barcelona",
   "version": "1.0.0",
   "description": "Barcelona is a responsive theme with an emphasis on images. Large hero images and product images are the highlights of this theme. Use them to create visually stunning category pages that show off your products.",
-  "main": "index.js",
+  "main": "README.md",
   "lemonstand" : {
     "code":"barcelona",
     "type": "theme",
