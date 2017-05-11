@@ -13,12 +13,16 @@
     <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
     <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
 
-    <link rel="stylesheet" type="text/css" href="/cms/core.css">
+    <link rel="stylesheet" type="text/css" href="/cms/lemonstand.css">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
     <link href="{{ 'css/bootstrap/css/bootstrap.min.css'|theme_resource }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <script src="{{ 'js/jquery-1.11.0.min.js'|theme_resource }}"></script>
+    <script src="{{ 'js/jquery-migrate-1.2.1.js'|theme_resource }}"></script>
+    <script type="text/javascript" src="/cms/lemonstand.js"></script>
 
 	{# page styles #}
 	{% if globals.active_page == 'home' %}
@@ -28,7 +32,6 @@
 	{% else %}
 		{{ partial('css-inner') }}
     {% endif %}
-
 
     <style type="text/css">
         .md-button{

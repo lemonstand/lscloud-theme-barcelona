@@ -1,0 +1,49 @@
+<div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <h3>Saved Cards</h3>
+            {% if customer.cards|length %}
+            <table class="card-table">
+                {% for card in customer.cards %}
+                <tr>
+                    <th>{{card.card_and_brand}}</th>
+                    <th>
+                        <a
+                        id="edit-card"
+                        card="{{card.id}}"
+                        href="javascript:void(0)"
+                        >Edit Card</a>
+                    </th>
+                    <th>
+                        <a
+                        id="delete-card"
+                        href="javascript:void(0)"
+                        data-ajax-handler="shop:onDeleteCustomerCard"
+                        data-ajax-update="#profile-edit-card=shop-customerprofile-edit-card"
+                        data-ajax-extra-fields="deleteCardId='{{ card.id }}'"
+                        >Delete Card</a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>
+                    No saved cards available.
+                </p>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <input type="button" id="add-card" class="btn btn-important" value="Add Card">
+        </div>
+        {{ flash() }}
+    </div>
+
+    <div class="col-sm-6">
+        {% for card in customer.cards %}
+            {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
+        {% endfor %}
+        
+        {{ partial('shop-customerprofile-add-card-form') }}
+    </div>
+
+</div>

@@ -12,16 +12,15 @@ url: /checkout
 		    <div class="col-md-12 col-lg-9">
 		    	<div class="panel-group checkout-accordions">
 					<div class="panel">
-						
 						<div id="checkout-page">{{ partial('shop-checkout') }}</div>
-						
 					</div>
 		    	</div>	
 			</div>
 			{{ open_form({'class': 'custom'}) }}
 			<div id="cart-totals">{{ partial('shop-cart-totals', {'items': items}) }}</div>
 			{{ close_form() }}
-		</div>	
-		
+		</div>
 	</div>
 </section>
+
+{{ code_block('script') }}
