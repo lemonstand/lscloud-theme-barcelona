@@ -265,18 +265,22 @@ padding: 18px 50px;
 .product-item .md-button{
    padding:9px 43px;
 }
-.md-button{
+.md-button,
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
     text-align:center;
-   border: none;
-color:#fff;
+    border: none;
+    color:#fff;
     letter-spacing:1px;
     text-transform:uppercase;
     background-color:#34A994;
     font-weight:bold;
     padding:9px 15px;
     display:inline-block;
-
-
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 

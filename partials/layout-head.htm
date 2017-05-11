@@ -35,18 +35,24 @@
     {% endif %}
 
     <style type="text/css">
-        .md-button{
+        .md-button,
+        .ls-card-form .submit-button {
             background-color:{{ theme.baseColor }};
         }
-        .md-button:hover{
+        
+        .md-button:hover,
+        .ls-card-form .submit-button:hover {
             background-color:{{theme.hoverColor}};
         }
+        
         .top-cart-price{
             color:{{ theme.baseColor }};
         }
+        
         .total-buble{
             background-color:{{ theme.baseColor }};
         }
+
         a:hover{
             color:{{ theme.baseColor }};
         }
@@ -69,13 +75,15 @@
             color:{{theme.baseColor}};
         }
 
-        .product-item:hover .product-item{
+        .product-item:hover .product-item {
             padding-bottom:0;
             height:460px;
         }
+
         .breadcrumb{
             border-bottom:solid {{theme.baseColor}} 6px;
         }
+
         .single-product-info-holder .nav-area-holder .back a{
             color:{{theme.baseColor}}5;
         }
