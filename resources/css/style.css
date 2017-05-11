@@ -11,6 +11,37 @@ Content Table
 ...
 */
 
+/* Card Form */
+
+.ls-card-form {
+    width: 100%;
+}
+
+.card-form-expiry-outer label {
+    display: inherit;
+}
+
+.card-table {
+    font-size: 15px;
+    background-color: #F1F1F1;
+}
+
+.card-table th {
+    padding: 10px;
+}
+
+.card-form-close {
+    display: none;
+}
+
+.card-form-open {
+    display: block;
+}
+
+.saved-card-selector {
+    width: 0;
+    min-width: 325px;
+}
 
 /*  General classes  */
 a:hover,a:focus,a:active{
