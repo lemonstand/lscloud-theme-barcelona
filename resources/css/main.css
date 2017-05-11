@@ -1,3 +1,7 @@
+.ls-card-form {
+    width: 100%;
+}
+
 .card-form-expiry-outer label {
     display: inherit;
 }
