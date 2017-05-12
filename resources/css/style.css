@@ -43,6 +43,46 @@ Content Table
     min-width: 325px;
 }
 
+.ls-card-form .card-form-input {
+  background-color: white;
+  color: #8d8d8d;
+  letter-spacing: 1px;
+  border: 1px solid #DCDCDC;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: inherit;
+}
+
+.ls-card-form .card-form-input:focus,
+.ls-card-form .card-form-input:hover {
+  border-color: #34a992;
+  background-color: white;
+}
+
+.ls-card-form .card-form-input::-webkit-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input:-moz-placeholder { /* Firefox 18- */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input::-moz-placeholder {  /* Firefox 19+ */
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+ 
+.ls-card-form .card-form-input:-ms-input-placeholder {
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+
 /*  General classes  */
 a:hover,a:focus,a:active{
     color:#34a994;
