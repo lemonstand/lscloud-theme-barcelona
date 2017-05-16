@@ -39,8 +39,7 @@ Content Table
 }
 
 .saved-card-selector {
-    width: 0;
-    min-width: 325px;
+    width: 100%;
 }
 
 .ls-card-form .card-form-input {

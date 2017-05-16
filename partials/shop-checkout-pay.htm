@@ -32,11 +32,31 @@
 <div id="collapse2" class="panel-collapse collapse in">
 	<div class="panel-body step-4">
 		{% if cart %}
-
 		      {% if order.payment_processed %}
 		        <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
 		      {% else %}
 
+		      		<!--  Pay with stored cards shown in dropdown -->
+				    {% if cards is defined %}
+				        <div class ="row">
+				        	<div class="col-xs-12 col-md-6">
+				            <h4>Pay with a Saved Card</h4>
+				            <form class="custom" method="post" data-ajax-handler="shop:onPay">
+				                <input type='hidden' name='payment_method_id' id='payment_method_id' value=''>
+				                <select name="payment_method_token" class="md-select saved-card-selector" id="saved_card_option" style="margin-bottom: 15px;">
+				                    <option value=''> Select Saved Card </option>
+				                    {% for card in cards %}
+				                        <option id="token-{{ card.token }}" value="{{ card.token }}" card-method="{{ card.paymentMethod.id }}">{{ card.paymentMethod.name }}: {{ card.cardAndBrand }}</option>
+				                    {% endfor %}
+				                </select>
+				                <input type="submit" class="md-button" value="Pay with Saved Card">
+				            </form>
+				            <br>
+				            <h4>or</h4>
+				            <br>
+				        	</div>
+				        </div>
+				    {% endif %}
 		            <div class="row">
 			            <div class="col-xs-12 col-md-6">
 				            <h4><label for="payment_method">Payment method</label></h4>
