@@ -1,12 +1,14 @@
 <div class='panel'>
-    <h4 class="panel-title">
-        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse4">
-        4. Saved Cards
-        </a>
-    </h4>
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse4">
+            4. Saved Cards
+            </a>
+        </h4>
+    </div>
 
     <div id="collapse4" class="panel-collapse collapse in">
-        <div class="col-sm-6 panel-body step-3">
+        <div class="col-sm-6 panel-body step-4">
             <div class="field-row">
                 {% if customer.cards|length %}
                 <table class="card-table">
@@ -44,7 +46,7 @@
             {{ flash() }}
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 panel-body step-4">
             {% for card in customer.cards %}
                 {{ partial('shop-customerprofile-edit-card-form', {'card' : card}) }}
             {% endfor %}
