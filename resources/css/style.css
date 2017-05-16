@@ -30,6 +30,12 @@ Content Table
     padding: 10px;
 }
 
+.card-table a,
+.card-table a:hover,
+.card-table a:focus {
+    text-decoration: underline;
+}
+
 .card-form-close {
     display: none;
 }
