@@ -49,15 +49,15 @@
                     <h4>my account</h4>
 
                     <div class="content">
-                    	<ul class="link-list">
-	                        {% if customer %}
-	                            <li><a href="{{ site_url('/orders') }}" title="My Orders">My Orders</a></li>
-	                            <li><a href="{{ site_url('/profile') }}" title="My Profile">My Profile</a></li>
-	                            <li><a href="{{ site_url('/logout') }}" title="Logout">Logout</a></li>
-	                        {% else %}
-	                            <li><a href="{{ site_url('/login') }}" title="Login / Register">Login / Register</a></li>
-	                        {% endif %}
-	                    </ul>
+                        <ul class="link-list">
+                            {% if customer %}
+                                <li><a href="{{ site_url('/orders') }}" title="My Orders">My Orders</a></li>
+                                <li><a href="{{ site_url('/profile') }}" title="My Profile">My Profile</a></li>
+                                <li><a href="{{ site_url('/logout') }}" title="Logout">Logout</a></li>
+                            {% else %}
+                                <li><a href="{{ site_url('/login') }}" title="Login / Register">Login / Register</a></li>
+                            {% endif %}
+                        </ul>
 
                     </div>
 

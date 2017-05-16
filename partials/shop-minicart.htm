@@ -6,7 +6,7 @@
 
 {% if cart.listitems|length %}
 <div class="hover-holder">
-	{{ partial('shop-minicart-items', {'edit_cart': true}) }}
+    {{ partial('shop-minicart-items', {'edit_cart': true}) }}
     <a class="top-chk-out md-button" href="{{ site_url('/cart') }}">check out</a>
 </div>
 {% endif %}

@@ -1,124 +1,124 @@
 {% set on_sale = product.onSale %}
 <div class="col-lg-6 col-md-12" itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
-	<div class="single-product-info-holder">
-		{{ partial('breadcrumb-bar') }}
-		<div class="brand">
-		</div>
-		<h1 itemprop="name">{{ product.name }}</h1>
+    <div class="single-product-info-holder">
+        {{ partial('breadcrumb-bar') }}
+        <div class="brand">
+        </div>
+        <h1 itemprop="name">{{ product.name }}</h1>
 
-		{% if theme.ratingToggle %}
-	    <div class="product-rating-container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12">
-						<!-- product ratings -->
-		        {% set product_rating = product.rating() %}
-		        <p style="display: inline;">
-		          {% if product_rating.total_reviews %}
-				        {{ partial('product-rating-stars') }}
-		         		({{ product_rating.total_reviews }})
-		        	{% else %}
-		        		&star;&star;&star;&star;&star;
-		         		(no reviews yet)
-		        	{% endif %}
-							{% if product_rating.total_reviews %}
-								{{ partial('shop-product-review-view') }}
-			          <!-- View Review -->
-			          <a id="view-review" href="#" data-toggle="modal" data-target="#productReviewModal">View Review(s)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        {% if theme.ratingToggle %}
+        <div class="product-rating-container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <!-- product ratings -->
+                {% set product_rating = product.rating() %}
+                <p style="display: inline;">
+                  {% if product_rating.total_reviews %}
+                        {{ partial('product-rating-stars') }}
+                         ({{ product_rating.total_reviews }})
+                    {% else %}
+                        &star;&star;&star;&star;&star;
+                         (no reviews yet)
+                    {% endif %}
+                            {% if product_rating.total_reviews %}
+                                {{ partial('shop-product-review-view') }}
+                      <!-- View Review -->
+                      <a id="view-review" href="#" data-toggle="modal" data-target="#productReviewModal">View Review(s)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 
-			          <!-- Write Review -->
-			          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
-			        {% else %}
-			          <!-- Write Review -->
-			          <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
-			        {% endif %}
-		        </p>
-					</div>
+                      <!-- Write Review -->
+                      <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
+                    {% else %}
+                      <!-- Write Review -->
+                      <a id="write-review" href="#" data-toggle="modal" data-target="#productWriteModal">Write Review</a>
+                    {% endif %}
+                </p>
+                    </div>
 
-				</div>
-
-
+                </div>
 
 
 
-	    </div>
+
+
+        </div>
     {% endif %}
 
-		<div class="price">
-			{% if on_sale %}
-				<span class="previous-price">{{ product.fullPrice|currency }}</span>
-			{% endif %}
-			<span  itemprop="price">{{ product.price|currency }}</span>
-			<meta itemprop="currency" content="USD" />
-		</div>
-		{% if product.description %}
-			<div class="excerpt" itemprop="description">
-				{{ product.description|unescape }}
-			</div>
-		{% endif %}
+        <div class="price">
+            {% if on_sale %}
+                <span class="previous-price">{{ product.fullPrice|currency }}</span>
+            {% endif %}
+            <span  itemprop="price">{{ product.price|currency }}</span>
+            <meta itemprop="currency" content="USD" />
+        </div>
+        {% if product.description %}
+            <div class="excerpt" itemprop="description">
+                {{ product.description|unescape }}
+            </div>
+        {% endif %}
 
-		{% if product.enabled %}
-			<div class="drop-down-holder">
-				{{ partial('shop-product-options') }}
-				{{ partial('shop-product-extras') }}
+        {% if product.enabled %}
+            <div class="drop-down-holder">
+                {{ partial('shop-product-options') }}
+                {{ partial('shop-product-extras') }}
 
-				<div class="quantity inline">
-					<h5>Quantity</h5>
-					<input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
-				</div>
-			</div>
-			<div class="buttons-holder">
-				<div class="add-cart-holder inline">
-				{% if not product.isOutOfStock() or product.allow_preorder %}
-					{{ flash() }}
-					<input type="hidden" name="productId" value="{{ product.id }}"/>
-					<a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
-					{% if product.in_stock_amount %}<div><i><span class="stock-remaining">{{ product.in_stock_amount }} left in stock</span></i></div> {% endif %}
-				{% else %}
-					<div class="not-available">
-						<h5>This product is temporarily unavailable</h5>
-					<div>
-				{% endif %}
-				</div>
-			</div>
-		{% else %}
-			<div class="not-available">
-				<h5>This product is not available</h5>
-			<div>
-		{% endif %}
+                <div class="quantity inline">
+                    <h5>Quantity</h5>
+                    <input class="md-input quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+                </div>
+            </div>
+            <div class="buttons-holder">
+                <div class="add-cart-holder inline">
+                {% if not product.isOutOfStock() or product.allow_preorder %}
+                    {{ flash() }}
+                    <input type="hidden" name="productId" value="{{ product.id }}"/>
+                    <a class="md-button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+                    {% if product.in_stock_amount %}<div><i><span class="stock-remaining">{{ product.in_stock_amount }} left in stock</span></i></div> {% endif %}
+                {% else %}
+                    <div class="not-available">
+                        <h5>This product is temporarily unavailable</h5>
+                    <div>
+                {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="not-available">
+                <h5>This product is not available</h5>
+            <div>
+        {% endif %}
 
-		{% if product.priceTiers.count or product.productAttributes.count %}
-	    <div class="product-attributes">
-				<div class="row">
-					{% if product.priceTiers.count %}
-			      <div class="col-xs-12 col-sm-6">
-			        <h3>Bulk Pricing</h3>
-							<div>
-								{{ partial('shop-product-bulk-pricing')}}
-							</div>
-			      </div>
-		      {% endif %}
-		      {% if product.productAttributes.count %}
-			      <div class="col-xs-12 col-sm-6">
-			        <h3>Product Specs</h3>
-			        <div>
-			        {{ partial('shop-product-attributes') }}
-			        </div>
-			      </div>
-		      {% endif %}
-				</div>
-	    </div>
+        {% if product.priceTiers.count or product.productAttributes.count %}
+        <div class="product-attributes">
+                <div class="row">
+                    {% if product.priceTiers.count %}
+                  <div class="col-xs-12 col-sm-6">
+                    <h3>Bulk Pricing</h3>
+                            <div>
+                                {{ partial('shop-product-bulk-pricing')}}
+                            </div>
+                  </div>
+              {% endif %}
+              {% if product.productAttributes.count %}
+                  <div class="col-xs-12 col-sm-6">
+                    <h3>Product Specs</h3>
+                    <div>
+                    {{ partial('shop-product-attributes') }}
+                    </div>
+                  </div>
+              {% endif %}
+                </div>
+        </div>
     {% endif %}
 
-		{% if theme.socialToggle %}
-			<div class="social-buttons">
-				<span>share with your friends</span>
-				<ul class="inline list-inline square-icons">
-					<li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-					<li class="twitter"><a href="https://twitter.com/intent/tweet?text={{ product.name }} http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-					<li class="gplus"><a href="http://pinterest.com/pin/create/button/?url=http:{{ site_url('/') }}product/{{ product.url_name}}&media={{ product.images.first.thumbnail(746, 'auto') }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-				</ul>
-			</div>
-		{% endif %}
+        {% if theme.socialToggle %}
+            <div class="social-buttons">
+                <span>share with your friends</span>
+                <ul class="inline list-inline square-icons">
+                    <li class="facebook"><a href="http://www.facebook.com/sharer/sharer.php?u=http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="https://twitter.com/intent/tweet?text={{ product.name }} http:{{ site_url('/') }}product/{{ product.url_name}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li class="gplus"><a href="http://pinterest.com/pin/create/button/?url=http:{{ site_url('/') }}product/{{ product.url_name}}&media={{ product.images.first.thumbnail(746, 'auto') }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+        {% endif %}
 
-	</div>
+    </div>
 </div>

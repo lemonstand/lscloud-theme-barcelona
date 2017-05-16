@@ -308,9 +308,9 @@ text-align: center;
 
 
 @media all and (max-width: 620px){  /*col-xs-*/
-	.field-row label.hide {
-		display: block !important;
-	}
+    .field-row label.hide {
+        display: block !important;
+    }
   .published-date {line-height:3.9em; text-align: right;}
   .product-review-controls {text-align: right;}
 }

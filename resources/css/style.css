@@ -2069,11 +2069,11 @@ width:50px;
 }
 
 .paging-holder ul li .prev-next-page, .paging-holder ul li:last-child .prev-next-page {
-	background: none;
-	width: auto;
+    background: none;
+    width: auto;
 }
 .paging-holder ul li:first-child .prev-next-page:hover, .paging-holder ul li:last-child .prev-next-page:hover {
-	color: #34a992;
+    color: #34a992;
 }
 
 /*Products sidebar page*/
@@ -2133,7 +2133,7 @@ padding: 0 0 0 26px;
     vertical-align: super;
 }
 .accordion-widget .accordion-toggle.direct-link:before{
-	content: '';
+    content: '';
 }
 .accordion-widget .accordion-toggle.collapsed:before{
     content: "";
@@ -2144,9 +2144,9 @@ padding: 0 0 0 26px;
     list-style: none;
     margin: 0;
 }
-	.accordion-widget .accordion-inner ul ul{
-		margin-left: 13px
-	}
+    .accordion-widget .accordion-inner ul ul{
+        margin-left: 13px
+    }
 .category-accordions .accordion-inner ul li:before{
     content: "-";
     margin-right: 2px;
@@ -2548,7 +2548,7 @@ display: inline-block;
     margin: 0 0 0 14px;
 }
 .section-shopping-cart-page .cart-item  .quantity input {
-	width: 74px;
+    width: 74px;
 }
 .section-shopping-cart-page .cart-item  .details{
 padding: 18px 0 0 0;
@@ -2912,18 +2912,18 @@ text-decoration: underline;
 
 }
 #payment_form {
-	padding-top: 18px;
+    padding-top: 18px;
 }
 .field-row label.hide {
-	display: none;
+    display: none;
 }
 table.full-width {
-	width: 100%;
+    width: 100%;
 }
 .field .fa-check-circle, .field .fa-times-circle {
-	position: absolute;
-	right: 30px;
-	top: 12px;
+    position: absolute;
+    right: 30px;
+    top: 12px;
 }
 .form-guest-checkout {
     margin: 0 0 0 40px;
@@ -2981,11 +2981,11 @@ width: 100%;
 }
 
 .checkout-accordions .shipping-method {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 .checkout-accordions .shipping-method h4 { margin-bottom: 4px; }
 .checkout-accordions .section-shopping-cart-page {
-	margin: 0;
+    margin: 0;
 }
 .checkout-accordions .md-input{
 padding: 11px 17px;
@@ -3029,7 +3029,7 @@ margin: 800px 0 0 0;
 
 }
 .checkout-accordions .shipping-method {
-	background-color: transparent;
+    background-color: transparent;
 box-shadow: 0px 0px 0px 1px #DCDCDC;
 padding: 14px 18px !important;
 border: none;
@@ -3127,7 +3127,7 @@ margin: 63px 0 0 0;
 margin: 0 0 20px 0;
 }
 .checkout-accordions #collapse1 {
-	padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 .order-summary-row {
 
@@ -3239,13 +3239,13 @@ opacity: 0.8;
  vertical-align: top;
 }
 ul.sub-category {
-	margin-left: 15px;
+    margin-left: 15px;
 }
 .product-img {
-	max-width: 100%;
+    max-width: 100%;
 }
 .section-shopping-cart-page .cart-item .details > div {
-	min-width: 42px;
+    min-width: 42px;
 }
 .section-category-slider {
      margin: 50px 0 0 0;

@@ -1,13 +1,13 @@
 {{ code_block('setup') }}
 
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>{{ page.title }}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="Description" content="{{ page.description }}"/>
-	<meta name="Keywords" content="{{ page.keywords }}"/>
+    <meta name="Description" content="{{ page.description }}"/>
+    <meta name="Keywords" content="{{ page.keywords }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
@@ -24,13 +24,13 @@
     <script src="{{ 'js/jquery-migrate-1.2.1.js'|theme_resource }}"></script>
     <script type="text/javascript" src="/cms/lemonstand.js"></script>
 
-	{# page styles #}
-	{% if globals.active_page == 'home' %}
-		{{ partial('css-home') }}
-	{% elseif globals.active_page == 'shop' %}
-		{{ partial('css-shop') }}
-	{% else %}
-		{{ partial('css-inner') }}
+    {# page styles #}
+    {% if globals.active_page == 'home' %}
+        {{ partial('css-home') }}
+    {% elseif globals.active_page == 'shop' %}
+        {{ partial('css-shop') }}
+    {% else %}
+        {{ partial('css-inner') }}
     {% endif %}
 
     <style type="text/css">
