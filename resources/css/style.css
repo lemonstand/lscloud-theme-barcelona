@@ -88,6 +88,16 @@ Content Table
     color: inherit;
 }
 
+.ls-card-form .error-highlight,
+.ls-card-form .error-highlight:focus {
+    border-color: #D34246 !important;
+}
+
+.ls-card-form .valid-highlight,
+.ls-card-form .valid-highlight:focus {
+    border-color: #3DE000 !important;
+}
+
 /*  General classes  */
 a:hover,a:focus,a:active{
     color:#34a994;
