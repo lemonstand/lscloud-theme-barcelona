@@ -8,21 +8,21 @@ url: '/search/:page?'
 ---
 
 <section id="fullwidth-products-grid" class="section-products-grid">
-	<div class="container">
-		<div class="product-grid no-move-down">
-			<div class="tab-pane active" id="fullwidth-page">
-				<h3 class="found">Products found: {{ products.get().count() }}</h3>
-			
-					{% paginate products by 6 %}
-					
-					{{ partial('shop-grid-view', { 'product': product, 'products': products, 'pagination': pagination}) }} 
-				
-					<div class="paging-holder">
-						{% navigation %}
-					</div>
-					
-					{% endpaginate %}
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="product-grid no-move-down">
+            <div class="tab-pane active" id="fullwidth-page">
+                <h3 class="found">Products found: {{ products.get().count() }}</h3>
+            
+                    {% paginate products by 6 %}
+                    
+                    {{ partial('shop-grid-view', { 'product': product, 'products': products, 'pagination': pagination}) }} 
+                
+                    <div class="paging-holder">
+                        {% navigation %}
+                    </div>
+                    
+                    {% endpaginate %}
+            </div>
+        </div>
+    </div>
 </section>

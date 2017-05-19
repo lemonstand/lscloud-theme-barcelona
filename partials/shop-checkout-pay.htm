@@ -2,66 +2,86 @@
     {{ partial("shop-checkout-progress") }}
 <!-- End id="checkout-progress" -->
 <div class="panel-heading">
-	<h4 class="panel-title">
-		<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse1">
-			Review Order
-		</a>
-	</h4>
+    <h4 class="panel-title">
+        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse1">
+            Review Order
+        </a>
+    </h4>
 </div>
 <div id="collapse1" class="panel-collapse collapse in">
-	<div class="panel-body step-4">
-		{{ partial('shop-cart-items') }}
-		<div class="row">
-			<div class="col-xs-6 button-holder">
-				<a class="md-button gray step-btn" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart" data-ajax-extra-fields="nextStep=shipping_method"><span class="fa fa-chevron-circle-left"></span> shipping method</a>
-			</div>
-			<div class="col-xs-6 button-holder right">
-				<a id="review-close" class="md-button step-btn" data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse1">continue <span class="fa fa-chevron-circle-down"></span></a>
-			</div>
-		</div>
-	</div>
+    <div class="panel-body step-4">
+        {{ partial('shop-cart-items') }}
+        <div class="row">
+            <div class="col-xs-6 button-holder">
+                <a class="md-button gray step-btn" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart" data-ajax-extra-fields="nextStep=shipping_method"><span class="fa fa-chevron-circle-left"></span> shipping method</a>
+            </div>
+            <div class="col-xs-6 button-holder right">
+                <a id="review-close" class="md-button step-btn" data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse1">continue <span class="fa fa-chevron-circle-down"></span></a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="panel-heading">
-	<h4 class="panel-title">
-		<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse2">
-			Payment
-		</a>
-	</h4>
+    <h4 class="panel-title">
+        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapse2">
+            Payment
+        </a>
+    </h4>
 </div>
 <div id="collapse2" class="panel-collapse collapse in">
-	<div class="panel-body step-4">
-		{% if cart %}
+    <div class="panel-body step-4">
+        {% if cart %}
+              {% if order.payment_processed %}
+                <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
+              {% else %}
 
-		      {% if order.payment_processed %}
-		        <p class="flash info"><strong>Thank you!</strong> The payment is already processed for this order.</p>
-		      {% else %}
+                      <!--  Pay with stored cards shown in dropdown -->
+                    {% if cards is defined %}
+                        <div class ="row">
+                            <div class="col-xs-12 col-md-6">
+                            <h4>Pay with a Saved Card</h4>
+                            <form class="custom" method="post" data-ajax-handler="shop:onPay">
+                                <input type='hidden' name='payment_method_id' id='payment_method_id' value=''>
+                                <select name="payment_method_token" class="md-select saved-card-selector" id="saved_card_option" style="margin-bottom: 15px;">
+                                    <option value=''> Select Saved Card </option>
+                                    {% for card in cards %}
+                                        <option id="token-{{ card.token }}" value="{{ card.token }}" card-method="{{ card.paymentMethod.id }}">{{ card.paymentMethod.name }}: {{ card.cardAndBrand }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" class="md-button" value="Pay with Saved Card">
+                            </form>
+                            <br>
+                            <h4>or</h4>
+                            <br>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <h4><label for="payment_method">Select a Payment Method</label></h4>
+                            <!--
+                              The payment form below (id="payment_form") automatically updates when
+                              the payment method is changed. See app.js for the implementation details.
+                            -->
+                            {{ open_form({'class': 'custom'}) }}
+                              <select name="paymentMethodId" id="payment_method" class="md-select col-xs-12">
+                                <option value=''> - </option>
+                                {% for method in paymentMethods %}
+                                    <option value="{{ method.id }}">{{ method.name }}</option>
+                                {% endfor %}
+                              </select>
+                            </form>
+                        </div>
+                    </div>
 
-		            <div class="row">
-			            <div class="col-xs-12 col-md-6">
-				            <h4><label for="payment_method">Payment method</label></h4>
-				            <!--
-				              The payment form below (id="payment_form") automatically updates when
-				              the payment method is changed. See app.js for the implementation details.
-				            -->
-				            {{ open_form({'class': 'custom'}) }}
-				              <select name="paymentMethodId" id="payment_method" class="md-select col-xs-12">
-				                <option value=''> - </option>
-				                {% for method in paymentMethods %}
-				                    <option value="{{ method.id }}">{{ method.name }}</option>
-				                {% endfor %}
-				              </select>
-				            </form>
-			            </div>
-		            </div>
+                  <div id="payment_form">{{ partial('shop-paymentform') }}</div>
 
-		          <div id="payment_form">{{ partial('shop-paymentform') }}</div>
+              {% endif %}
 
-		      {% endif %}
+        {% else %}
+          <p class="flash error">Order not found.</p>
+        {% endif %}
 
-		{% else %}
-		  <p class="flash error">Order not found.</p>
-		{% endif %}
-
-	</div>
+    </div>
 </div>

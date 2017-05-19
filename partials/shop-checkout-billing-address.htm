@@ -2,89 +2,89 @@
     {{ partial("shop-checkout-progress") }}
 <!-- End id="checkout-progress" -->
 <div class="panel-heading">
-	<h4 class="panel-title">
-		<span>billing address</span>
-	</h4>
+    <h4 class="panel-title">
+        <span>billing address</span>
+    </h4>
 </div>
 <div class="panel-body step-1">
-	{{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
-		{{ flash() }}
-		<div class="row field-row">
-			<div class="col-xs-6">
-				<input class="required md-input  " placeholder="first name*" value="{{ billingInfo.firstName }}" name="billingInfo[firstName]" id="billing_firstName"/>
-				<span class="error"></span>
-			</div>
-			<div class="col-xs-6">
-				<input class="required md-input" placeholder="last name*" value="{{ billingInfo.lastName }}" name="billingInfo[lastName]" id="billing_lastName" />
-				<span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-12">
-				<input class="md-input" placeholder="company name (optional)" value="{{ billingInfo.company }}" name="billingInfo[company]" id="company" />
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-12">
-				<input class="required md-input" placeholder="address line 1*" value="{{ billingInfo.streetAddressLine1 }}" name="billingInfo[streetAddressLine1]" id="billing_address" />
-				<span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-12">
-				<input class="required md-input" placeholder="address line 2 (optional)" value="{{ billingInfo.streetAddressLine2 }}" name="billingInfo[streetAddressLine2]" id="billing_address" />
-				<span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-10">
-				<input class="required md-input col-xs-12" placeholder="town*" value="{{ billingInfo.city }}" name="billingInfo[city]" id="billing_city" />
-				<span class="error"></span>
-			</div>
-			<div class="col-xs-2">
-				<input class="required md-input " placeholder="postcode/zip*" value="{{ billingInfo.postalCode }}" name="billingInfo[postalCode]" id="billing_postalCode" />
-				<span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-6">
-				<select class="chzn-select md-select col-xs-12" id="billing_country" name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
+    {{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
+        {{ flash() }}
+        <div class="row field-row">
+            <div class="col-xs-6">
+                <input class="required md-input  " placeholder="first name*" value="{{ billingInfo.firstName }}" name="billingInfo[firstName]" id="billing_firstName"/>
+                <span class="error"></span>
+            </div>
+            <div class="col-xs-6">
+                <input class="required md-input" placeholder="last name*" value="{{ billingInfo.lastName }}" name="billingInfo[lastName]" id="billing_lastName" />
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-12">
+                <input class="md-input" placeholder="company name (optional)" value="{{ billingInfo.company }}" name="billingInfo[company]" id="company" />
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-12">
+                <input class="required md-input" placeholder="address line 1*" value="{{ billingInfo.streetAddressLine1 }}" name="billingInfo[streetAddressLine1]" id="billing_address" />
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-12">
+                <input class="required md-input" placeholder="address line 2 (optional)" value="{{ billingInfo.streetAddressLine2 }}" name="billingInfo[streetAddressLine2]" id="billing_address" />
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-10">
+                <input class="required md-input col-xs-12" placeholder="town*" value="{{ billingInfo.city }}" name="billingInfo[city]" id="billing_city" />
+                <span class="error"></span>
+            </div>
+            <div class="col-xs-2">
+                <input class="required md-input " placeholder="postcode/zip*" value="{{ billingInfo.postalCode }}" name="billingInfo[postalCode]" id="billing_postalCode" />
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-6">
+                <select class="chzn-select md-select col-xs-12" id="billing_country" name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
                     {% for country in countries %}
                     <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
                     {% endfor %}
                 </select>
                 <span class="error"></span>
-			</div>
-			<div class="col-xs-6">
-				<select class="chzn-select md-select col-xs-12" id="billing_state" name="billingInfo[stateId]" data-ajax-refresh >
+            </div>
+            <div class="col-xs-6">
+                <select class="chzn-select md-select col-xs-12" id="billing_state" name="billingInfo[stateId]" data-ajax-refresh >
                     {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
                 </select>
                 <span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row ">
-			<div class="col-xs-6">
-				<input class="required md-input" placeholder="email address*" value="{{ billingInfo.email }}" name="billingInfo[email]" id="billing_email" />
-				<span class="error"></span>
-			</div>
-			<div class="col-xs-6">
-				<input class="md-input" placeholder="phone number" value="{{ billingInfo.phone }}" name="billingInfo[phone]" id="billing_phone" />
-				<span class="error"></span>
-			</div>
-		</div>
-		<div class="row field-row checkout-button-row">
-			<div class="col-xs-9 checkbox-holder">
-				<input class="md-check" type="checkbox"> Use this address for shipping
-			</div>
-			<div class="col-xs-3 button-holder right">
-				<a class="md-button step-btn" href="javascript:;" id="billing-continue">continue</a>
-			</div>
-			<div class="col-xs-9 checkbox-holder">
-				<input class="md-check" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
-			</div>
-		</div>
-		
-		<input type="hidden" id="billing-current-step" name="step" value="billing_info"/>
+            </div>
+        </div>
+        <div class="row field-row ">
+            <div class="col-xs-6">
+                <input class="required md-input" placeholder="email address*" value="{{ billingInfo.email }}" name="billingInfo[email]" id="billing_email" />
+                <span class="error"></span>
+            </div>
+            <div class="col-xs-6">
+                <input class="md-input" placeholder="phone number" value="{{ billingInfo.phone }}" name="billingInfo[phone]" id="billing_phone" />
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="row field-row checkout-button-row">
+            <div class="col-xs-9 checkbox-holder">
+                <input class="md-check" type="checkbox"> Use this address for shipping
+            </div>
+            <div class="col-xs-3 button-holder right">
+                <a class="md-button step-btn" href="javascript:;" id="billing-continue">continue</a>
+            </div>
+            <div class="col-xs-9 checkbox-holder">
+                <input class="md-check" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
+            </div>
+        </div>
+        
+        <input type="hidden" id="billing-current-step" name="step" value="billing_info"/>
         <input type="hidden" id="billing-next-step" name="nextStep" value="shipping_info" />
-	</form>
+    </form>
 </div>

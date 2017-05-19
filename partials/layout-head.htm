@@ -1,48 +1,57 @@
 {{ code_block('setup') }}
 
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>{{ page.title }}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="Description" content="{{ page.description }}"/>
-	<meta name="Keywords" content="{{ page.keywords }}"/>
+    <meta name="Description" content="{{ page.description }}"/>
+    <meta name="Keywords" content="{{ page.keywords }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
     <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
 
-    <link rel="stylesheet" type="text/css" href="/cms/core.css">
+    <link rel="stylesheet" type="text/css" href="/cms/lemonstand.css">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
     <link href="{{ 'css/bootstrap/css/bootstrap.min.css'|theme_resource }}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-	{# page styles #}
-	{% if globals.active_page == 'home' %}
-		{{ partial('css-home') }}
-	{% elseif globals.active_page == 'shop' %}
-		{{ partial('css-shop') }}
-	{% else %}
-		{{ partial('css-inner') }}
+    <script src="{{ 'js/jquery-1.11.0.min.js'|theme_resource }}"></script>
+    <script src="{{ 'js/jquery-migrate-1.2.1.js'|theme_resource }}"></script>
+    <script type="text/javascript" src="/cms/lemonstand.js"></script>
+
+    {# page styles #}
+    {% if globals.active_page == 'home' %}
+        {{ partial('css-home') }}
+    {% elseif globals.active_page == 'shop' %}
+        {{ partial('css-shop') }}
+    {% else %}
+        {{ partial('css-inner') }}
     {% endif %}
 
-
     <style type="text/css">
-        .md-button{
+        .md-button,
+        .ls-card-form .submit-button {
             background-color:{{ theme.baseColor }};
         }
-        .md-button:hover{
+        
+        .md-button:hover,
+        .ls-card-form .submit-button:hover {
             background-color:{{theme.hoverColor}};
         }
+        
         .top-cart-price{
             color:{{ theme.baseColor }};
         }
+        
         .total-buble{
             background-color:{{ theme.baseColor }};
         }
+
         a:hover{
             color:{{ theme.baseColor }};
         }
@@ -65,13 +74,15 @@
             color:{{theme.baseColor}};
         }
 
-        .product-item:hover .product-item{
+        .product-item:hover .product-item {
             padding-bottom:0;
             height:460px;
         }
+
         .breadcrumb{
             border-bottom:solid {{theme.baseColor}} 6px;
         }
+
         .single-product-info-holder .nav-area-holder .back a{
             color:{{theme.baseColor}}5;
         }
