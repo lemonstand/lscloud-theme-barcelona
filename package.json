@@ -7,12 +7,12 @@
     "code":"barcelona",
     "type": "theme",
     "options": "options.json",
-    "demo" : "https//barcelona.lemonstand.com",
+    "demo" : "https://barcelona.lemonstand.com",
     "screenshots" : {
       "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-barcelona/master/resources/screenshots/tiny-square.png",
       "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-barcelona/master/resources/screenshots/large-square.png"
     }
-  },  
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
