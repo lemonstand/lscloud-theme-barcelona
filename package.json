@@ -1,7 +1,7 @@
 {
   "name": "Barcelona",
   "version": "1.0.0",
-  "description": "Barcelona is a responsive theme with an emphasis on images. Large hero images and product images are the highlights of this theme. Use them to create visually stunning category pages that show off your products.",
+  "description": "Barcelona is a responsive theme, aimed at fashion retailers. It puts emphasis on large images for stunning visual merchandising. it sports a large hero image on the homepage, banner images on category pages, image carousel for products in listings, and more.<br/>This theme uses an elegant design, with customizable colors that's ready for you to infuse it with our brand.",
   "main": "README.md",
   "lemonstand" : {
     "code":"barcelona",
@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/lemonstand/lscloud-theme-barcelona/issues"
   },
-  "homepage": "https://github.com/lemonstand/lscloud-theme-barcelona#readme"
+  "homepage": "https://github.com/lemonstand/lscloud-theme-barcelona#readme",
+  "keywords": [
+    "responsive",
+    "fashion",
+    "hero-image"
+  ]
 }
