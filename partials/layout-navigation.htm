@@ -1,4 +1,25 @@
 <div class="top-menu visible-md visible-lg">
+    <ul>
+      <li class="">
+        <a href="/">Home</a>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" id="dropdownMenu1" href="/shop">shop</a>
+        {% if categories.count %}
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            {% tree categories %}
+                {% for category in tree.items %}
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/category/{{ category.fullUrlName }}">
+                        {{ category.name }}
+                      </a>
+                    </li>
+                {% endfor %}
+            {% endtree %}
+          </ul>
+        {% endif %}
+      </li>
+    </ul>
     {{ widget_block("header-menu") }}
     <ul>
       {% if customer %}
