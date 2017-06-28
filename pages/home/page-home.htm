@@ -7,12 +7,14 @@ name: Home
 url: /
 ---
 <section class="section-home-banner">
-    <div class="container"><img class="lazy" src="{{ 'images/homepage-3-banner.jpg'|theme_resource }}"></div>
+    <div class="container">
+      <img class="lazy" src="{{ theme.homepageImageHero.thumbnail(500, 'auto')}}" />
+    </div>
 </section>
 
 <section id="homepage-products-tab" class="section-products-grid">
     <div class="container">
-        
+
         {# Nav tabs #}
         <div class="tab-nav-holder">
             <ul class="nav-tabs">
@@ -29,7 +31,7 @@ url: /
         <div class="tab-tag-line uppercase bold">
             we have over 2000 products in our shop
         </div>
-        
+
         {{ flash() }}
 
         {# Tab panes #}
@@ -46,7 +48,7 @@ url: /
                 </div>
             </div>{# /whats-new #}
         </div>{# /tab-content #}
-        
+
     </div>
 </section>
 

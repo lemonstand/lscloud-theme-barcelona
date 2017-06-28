@@ -15,6 +15,7 @@ customFields:
     buttonColor: { type: color, title: 'Button Color', default: '#DC3E2F', comment: 'Color used for Add To Cart and Checkout buttons.' }
     buttonHoverColor: { type: color, title: 'Button Hover Color', default: '#b92c1f', comment: 'Button color when you hover your mouse cursor over.' }
     buttonBorderColor: { type: color, title: 'Button Border Color', default: '#DC3E2F', comment: 'Border color for buttons.' }
+    homepageImageHero: { type: image, title: 'Home Page: Main banner image', default: '@/images/homepage-3-banner.jpg' }
     homepageImageBannerA: { type: image, title: 'Home: Banner Image 1', default: '@/images/banner-freeshipping.jpg' }
     homepageImageBannerB: { type: image, title: 'Home: Banner Image 2', default: '@/images/banner-design-onsale.jpg' }
     aboutImageBanner: { type: image, title: 'About: Banner Image', default: '@/images/banner-about-us.jpg' }
