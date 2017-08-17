@@ -2,6 +2,7 @@
   "name": "Barcelona",
   "version": "1.0.0",
   "description": "Barcelona is a responsive theme, aimed at fashion retailers. It puts emphasis on large images for stunning visual merchandising. it sports a large hero image on the homepage, banner images on category pages, image carousel for products in listings, and more.<br/>This theme uses an elegant design, with customizable colors that's ready for you to infuse it with our brand.",
+  "excerpt": "Barcelona is a responsive theme, tailor-made for fashion retailers with an emphasis on large images.",
   "main": "README.md",
   "lemonstand" : {
     "code":"barcelona",
