@@ -111,7 +111,7 @@ $(document).ready(function() {
 
     //Use billing address for shipping address checkbox
     $(document).on('click', '#billing-continue', function() {
-        if ($('.md-check').is(':checked')) {
+        if ($('.use-billing-address').is(':checked')) {
             $(this).sendRequest('shop:onCheckoutBillingInfo', {
                 onAfterUpdate: function() {
                     $(this).sendRequest('shop:onCopyBillingToShipping', {
