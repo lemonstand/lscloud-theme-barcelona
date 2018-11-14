@@ -76,11 +76,11 @@
             <div class="col-xs-9 checkbox-holder">
                 <input class="use-billing-address md-check" type="checkbox"> Use this address for shipping
             </div>
-            <div class="col-xs-3 button-holder right">
-                <a class="md-button step-btn" href="javascript:;" id="billing-continue">continue</a>
-            </div>
             <div class="col-xs-9 checkbox-holder">
                 <input class="md-check" name="accepts_marketing" type="checkbox" id="accepts_marketing" checked/> Recieve promotional emails
+            </div>
+            <div class="col-xs-12 button-holder right">
+                <a class="md-button step-btn right" href="#" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #mini-cart=shop-minicart" data-ajax-extra-fields="nextStep=shipping_info">Continue</a>
             </div>
         </div>
         
